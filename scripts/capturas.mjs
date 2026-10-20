@@ -94,8 +94,8 @@ try {
   }
 
   for (const [id, nome] of [
-    ["sobre", "sobre.png"],
-    ["destaque", "destaque.png"],
+    ["beneficios", "beneficios.png"],
+    ["preco", "preco.png"],
     ["galeria", "galeria.png"],
     ["fotos", "pasta-fechada.png"],
   ]) {
@@ -121,7 +121,9 @@ try {
 
   for (const [id, nome] of [
     ["video", "video.png"],
-    ["fatos", "fatos.png"],
+    ["compra", "compra.png"],
+    ["quiz", "quiz.png"],
+    ["perguntas", "perguntas.png"],
     ["contato", "contato.png"],
   ]) {
     await irPara(pagina, id);
@@ -165,8 +167,8 @@ try {
   }
 
   for (const [id, nome] of [
-    ["sobre", "mobile-sobre.png"],
-    ["destaque", "mobile-destaque.png"],
+    ["beneficios", "mobile-beneficios.png"],
+    ["preco", "mobile-preco.png"],
     ["galeria", "mobile-galeria.png"],
     ["fotos", "mobile-pasta-fechada.png"],
   ]) {
@@ -182,7 +184,8 @@ try {
 
   for (const [id, nome] of [
     ["video", "mobile-video.png"],
-    ["fatos", "mobile-fatos.png"],
+    ["compra", "mobile-compra.png"],
+    ["quiz", "mobile-quiz.png"],
     ["contato", "mobile-contato.png"],
   ]) {
     await irPara(celular, id, 70);
