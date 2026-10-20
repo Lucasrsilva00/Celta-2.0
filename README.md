@@ -16,11 +16,10 @@ npm install
 npm run dev      # http://localhost:3000
 ```
 
-Build de produção:
+Build de produção (gera `out/`, pasta publicada no Netlify):
 
 ```bash
-npm run build
-npm run start    # http://localhost:3000
+npm run build    # modo export estático; `npm run start` não funciona com output: "export"
 npm run lint
 ```
 
@@ -134,11 +133,28 @@ Quando um campo é `null`, a interface mostra **“Consultar”** em vez de inve
   publicar.
 - **Sem backend:** o formulário e o agendador não enviam nada para servidor; apenas abrem o
   WhatsApp. Se o navegador bloquear a janela, a pessoa vê o número e o link manual.
-- **Sem deploy:** o projeto está pronto para build local, mas não foi publicado. Publicação
-  exige autorização.
+- **Publicação:** no ar por deploy automático do Netlify — detalhes na seção “Publicação”.
 - **FIPE:** referência de outubro/2026 (R$ 30.356), não garantia de preço de venda.
 - **Autonomia:** 691 km = 54 L × 12,8 km/l (estrada, gasolina); é uma estimativa a partir do
   consumo informado, não uma medição do carro.
+
+## Publicação
+
+- **Site no ar:** https://celta-2-0.netlify.app (projeto Netlify `celta-2-0`, repositório
+  `Lucasrsilva00/Celta-2.0`, branch de produção `main`).
+- **Deploy automático:** todo merge de PR em `main` dispara um deploy de produção no Netlify.
+  Cada PR aberta também ganha um **preview** próprio.
+- **Como atualizar o site:**
+  1. `git switch main && git pull` (base atualizada);
+  2. `git switch -c tipo/minha-mudanca` (ex.: `feat/fotos`, `fix/faq`);
+  3. commit com `tipo(escopo): resumo` e `git push -u origin tipo/minha-mudanca`;
+  4. abra o Pull Request, confira o preview do Netlify e faça o merge em `main`.
+- **Como voltar uma versão:**
+  - Painel: https://app.netlify.com/projects/celta-2-0 → aba **Deploys** → escolha um deploy
+    anterior → **Publish deploy** (instantâneo, não toca no repositório);
+  - ou no código: `git revert <commit>` e repita o fluxo acima (branch → commit → PR → merge).
+- Build: `npm run build` gera `out/`, pasta declarada em `netlify.toml` (`publish = "out"`),
+  com `NODE_VERSION = "22"`. O Netlify usa exatamente esses valores.
 
 ## Testes
 
