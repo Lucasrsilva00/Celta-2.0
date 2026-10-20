@@ -160,9 +160,9 @@ export default function Home() {
           </p>
         </section>
 
-        <BarraNumeros />
         <Dores />
         <Beneficios />
+        <BarraNumeros />
         <GaleriaAssimetrica />
         <PastaFotos />
         <PrecoFipe />

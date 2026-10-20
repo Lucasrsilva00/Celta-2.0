@@ -110,6 +110,31 @@ try {
     `imagens carregadas (${imagens.length - imagensQuebradas.length}/${imagens.length})`,
   );
 
+  // 4b. Números do carro chegam aos valores finais (sem arredondar decimais)
+  await pagina.evaluate(() => {
+    document
+      .querySelector('section[aria-label="Números do anúncio"]')
+      ?.scrollIntoView({ block: "center" });
+  });
+  await pagina.waitForFunction(
+    () => {
+      const primeiro = document.querySelector(
+        'section[aria-label="Números do anúncio"] dd p.numerico span[aria-hidden="true"]',
+      );
+      return primeiro?.textContent?.trim() === "3,79 m";
+    },
+    { timeout: 6_000 },
+  );
+  const numerosBarra = await pagina.$$eval(
+    'section[aria-label="Números do anúncio"] dd p.numerico span[aria-hidden="true"]',
+    (nos) => nos.map((no) => no.textContent?.trim()),
+  );
+  verificar(
+    JSON.stringify(numerosBarra) ===
+      JSON.stringify(["3,79 m", "5", "260 L", "691 km"]),
+    `números finais corretos (${numerosBarra.join(" · ")})`,
+  );
+
   // 5. Calculadora reage à quilometragem
   await pagina.evaluate(() => {
     const secao = document.getElementById("preco");
