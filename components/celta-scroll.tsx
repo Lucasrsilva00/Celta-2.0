@@ -699,7 +699,7 @@ export function CeltaScroll() {
             }}
           />
 
-          <p className="pointer-events-none absolute bottom-20 left-[6%] z-[8] text-[10px] uppercase tracking-[0.2em] text-grafite md:bottom-5">
+          <p className="pointer-events-none absolute bottom-20 left-[6%] z-[11] rounded-full border border-white/10 bg-preto/55 px-2.5 py-1 text-[10px] uppercase tracking-[0.2em] text-nevoa backdrop-blur-sm md:bottom-5">
             {rotulos.animacaoIlustrativa}
           </p>
 

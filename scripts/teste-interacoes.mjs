@@ -110,7 +110,27 @@ try {
     `imagens carregadas (${imagens.length - imagensQuebradas.length}/${imagens.length})`,
   );
 
-  // 4b. Números do carro chegam aos valores finais (sem arredondar decimais)
+  // 4b. Selo de IA da animação fica acima do overlay, não atrás dele
+  const seloIA = await pagina.evaluate(() => {
+    const selo = Array.from(document.querySelectorAll("p")).find((no) =>
+      no.textContent?.includes("Animação ilustrativa"),
+    );
+    const overlay = document.querySelector('.overlay[data-ativo="true"]');
+    return {
+      texto: selo?.textContent?.trim() ?? "",
+      z: Number.parseInt(selo ? getComputedStyle(selo).zIndex : "0", 10),
+      overlayZ: Number.parseInt(
+        overlay ? getComputedStyle(overlay).zIndex : "0",
+        10,
+      ),
+    };
+  });
+  verificar(
+    seloIA.texto.length > 0 && seloIA.z > seloIA.overlayZ,
+    `selo de IA visível acima do overlay (z ${seloIA.z} > ${seloIA.overlayZ})`,
+  );
+
+  // 4c. Números do carro chegam aos valores finais (sem arredondar decimais)
   await pagina.evaluate(() => {
     document
       .querySelector('section[aria-label="Números do anúncio"]')

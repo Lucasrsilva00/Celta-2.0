@@ -79,7 +79,7 @@ lib/
   revelar.ts                 hook de revelação das seções
 scripts/
   capturas.mjs               screenshots desktop/mobile por seção
-  teste-interacoes.mjs       15 verificações funcionais no navegador
+  teste-interacoes.mjs       16 verificações funcionais no navegador
   teste-pasta.mjs            abrir/fechar, abas, setas, miniaturas e Esc
   teste-video.mjs            vídeo toca com áudio e legendas
   desempenho.mjs             fps, tarefas longas e memória no scroll
@@ -145,8 +145,8 @@ Quando um campo é `null`, a interface mostra **“Consultar”** em vez de inve
 Com o servidor rodando (`npm run start` ou `npm run dev`):
 
 ```bash
-node scripts/teste-interacoes.mjs   # 15 verificações: h1, âncoras, foco em aria-hidden,
-                                    # imagens, números finais, calculadora, quiz, FAQ, formulário,
+node scripts/teste-interacoes.mjs   # 16 verificações: h1, âncoras, foco em aria-hidden,
+                                    # imagens, selo de IA, números finais, calculadora, quiz, FAQ, formulário,
                                     # agendador, vídeo, console, placeholders, 404 e barra
 node scripts/teste-pasta.mjs        # pasta: abrir/fechar, abas, setas, miniaturas, Esc
 node scripts/teste-video.mjs        # vídeo: áudio, controles, 1280×720, legendas
