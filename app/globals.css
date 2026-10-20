@@ -347,7 +347,7 @@ body {
   padding-block: clamp(56px, 7vw, 104px);
 }
 
-.revelar {
+[data-revelar] {
   opacity: 0;
   transform: translateY(22px);
   transition:
@@ -355,7 +355,7 @@ body {
     transform 700ms var(--ease-saida);
 }
 
-.revelar.revelado {
+[data-revelar].revelado {
   opacity: 1;
   transform: none;
 }
@@ -851,7 +851,7 @@ body {
     transform: none;
   }
 
-  .revelar {
+  [data-revelar] {
     opacity: 1;
     transform: none;
     transition: none;

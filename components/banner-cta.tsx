@@ -2,7 +2,13 @@
 
 import Image from "next/image";
 import { LetrasAnimadas } from "@/components/letras-animadas";
-import { anuncio, bannerContato, chamadaFinal } from "@/lib/conteudo";
+import {
+  anuncio,
+  bannerContato,
+  chamadaFinal,
+  contatoTexto,
+  rotulos,
+} from "@/lib/conteudo";
 import { useRevelar } from "@/lib/revelar";
 
 /** Banner de encerramento — o "Be Part of the Nio Community" do template. */
@@ -61,12 +67,12 @@ export function BannerCta() {
                   <path d="M5 12h13" />
                   <path d="M12.5 6l6 6-6 6" />
                 </svg>
-                <span className="sr-only"> — abre conversa no WhatsApp</span>
+                <span className="sr-only">{rotulos.abreWhatsApp}</span>
               </a>
             </div>
 
             <p className="mt-6 text-[11px] uppercase tracking-[0.2em] text-grafite">
-              {anuncio.telefone} · {anuncio.cidade}
+              {contatoTexto}
             </p>
           </div>
         </div>

@@ -299,7 +299,7 @@ export function PastaFotos() {
                       </div>
                     </div>
 
-                    <div className="pasta-legenda mx-auto mt-5 flex max-w-[760px] flex-wrap items-start justify-between gap-3">
+                    <div className="mx-auto mt-5 flex max-w-[760px] flex-wrap items-start justify-between gap-3">
                       <div>
                         <p className="text-[11px] uppercase tracking-[0.18em] text-gelo">
                           {atual.rotulo}

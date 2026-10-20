@@ -7,21 +7,60 @@
  */
 
 export const anuncio = {
+  marca: "Chevrolet",
   modelo: "Celta",
   ano: "2012",
   versao: "LT 1.0 Flex, 4 portas",
-  preco: "R$ 32.900",
-  precoObservacao: "Valor de anúncio — aberto a negociação",
-  cidade: "Campinas — SP",
-  km: "95.000 km",
+  cor: "Preto",
+  /** O preço só entra quando for definido pelo vendedor. Até lá, "consultar". */
+  preco: null as string | null,
+  precoObservacao: null as string | null,
+  /** Cidade, telefone e endereço ainda não foram informados. */
+  cidade: null as string | null,
+  telefone: null as string | null,
+  /** Estimativa de uso médio (12.000 km/ano desde 2012) — confirmar no CRLV. */
+  km: "aprox. 152.000 km",
+  kmNumero: 152000,
+  kmObservacao: "estimativa de uso médio desde 2012 — confira no CRLV na visita",
   cambio: "Manual, 5 marchas",
   combustivel: "Flex (etanol e gasolina)",
   documento: "Documentação em dia, sem multas e IPVA pago",
-  // Troque pelos seus dados reais:
-  whatsapp: "https://wa.me/5511999999999",
-  whatsappMensagem: "Olá! Vi o anúncio do Celta 2012 no site e queria saber mais.",
-  telefone: "+55 (11) 99999-9999",
+  /**
+   * Número provisório de atendimento. Trocar pelo número real do vendedor
+   * antes de publicar (o link wa.me usa apenas dígitos, com o 55 na frente).
+   */
+  whatsapp: "https://wa.me/5519991427358",
+  whatsappNumero: "5519991427358",
+  whatsappVisivel: "+55 (19) 99142-7358",
+  whatsappMensagem:
+    "Olá! Vi o site do Celta 2.0 e queria saber mais sobre o Celta 2012 LT.",
 };
+
+/** Texto de preço com o estado "a consultar" resolvido em um lugar só. */
+export const precoTexto = anuncio.preco ?? "Valor a consultar";
+
+/** Linha de contato do rodapé: nunca mostra "null" na tela. */
+export const contatoTexto =
+  anuncio.telefone ?? `WhatsApp ${anuncio.whatsappVisivel}`;
+
+/** Rótulos e microtextos repetidos — sem string solta nos componentes. */
+export const rotulos = {
+  contatoDono: "Contato direto com o vendedor",
+  comSom: "Com som",
+  videoPromocional: "Vídeo promocional",
+  assistirVideo: "Assistir ao vídeo promocional",
+  abreWhatsApp: " — abre conversa no WhatsApp",
+  abreNovaAba: " — abre conversa em nova aba",
+  verDePerto: "Ver o carro de perto",
+  valorAConsultar: "Valor a consultar",
+  rotuloWhatsapp: "WhatsApp",
+  imagensIlustrativas: "Imagens ilustrativas geradas por IA",
+  videoIlustrativo: "Vídeo ilustrativo criado com inteligência artificial",
+  animacaoIlustrativa: "Animação ilustrativa · IA",
+};
+
+export const rodapeTexto = `Anúncio de ${anuncio.versao}, ${anuncio.cor.toLowerCase()}. ${anuncio.documento}. Valores e condições sujeitos a negociação presencial. Imagens, vídeo e animação são ilustrativos e gerados com IA: confira o carro de perto antes de decidir.`;
+
 
 export const stats = [
   { valor: "1.0", rotulo: "Motor flex" },
@@ -47,8 +86,10 @@ export const detalhesMotor = {
   ],
 };
 
-export const diferenciais = [
-  {
+/** Título dos diferenciais, usado no roteiro da animação e no resumo acessível. */
+export const diferenciaisTitulo = "O que ele resolve na prática";
+
+export const diferenciais = [  {
     icone: "economia",
     titulo: "Econômico de verdade",
     texto: "Média alta por litro e tanque de 48 litros: menos idas ao posto a cada mês.",
@@ -160,7 +201,7 @@ const regiaoPorArquivo: Record<string, RegiaoFoto> = {
  * lista, acrescenta a região de cada foto e alimenta a pasta e as demais seções.
  * Os textos das legendas são sugestões de venda: revise antes de publicar.
  */
-export const fotosDoAnuncio = {
+const fotosDoAnuncio = {
   grupos: [
     [
       {
@@ -316,10 +357,20 @@ export type NumeroBarra = {
 
 /** A barra de números logo abaixo da animação (o "810 KM/H · 200 KM/H..." do template). */
 export const barraNumeros: NumeroBarra[] = [
-  { numero: 2012, formato: "ano", valor: "2012", rotulo: "Ano modelo" },
-  { numero: 95000, formato: "milhar", valor: "95.000", rotulo: "Quilômetros" },
-  { numero: 32900, formato: "moeda", valor: "R$ 32.900", rotulo: "Valor de anúncio" },
+  {
+    numero: Number(anuncio.ano),
+    formato: "ano",
+    valor: anuncio.ano,
+    rotulo: "Ano modelo",
+  },
+  {
+    numero: anuncio.kmNumero,
+    formato: "milhar",
+    valor: "152.000",
+    rotulo: "Quilômetros (aprox.)",
+  },
   { valor: "1.0 flex", rotulo: "Motor" },
+  { valor: "Manual", rotulo: "Câmbio de 5 marchas" },
 ];
 
 export const sobreCarro = {

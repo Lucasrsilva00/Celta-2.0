@@ -14,7 +14,10 @@ import {
   chamadaFinal,
   detalhesMotor,
   diferenciais,
+  diferenciaisTitulo,
   estadoDoCarro,
+  precoTexto,
+  rotulos,
   stats,
   visao,
 } from "@/lib/conteudo";
@@ -63,8 +66,9 @@ export default function Home() {
             {anuncio.modelo} {anuncio.ano} à venda — resumo do anúncio
           </h2>
           <p>
-            {anuncio.versao}, {anuncio.cidade}. Valor de anúncio: {anuncio.preco}.{" "}
-            {anuncio.precoObservacao}.
+            {anuncio.versao}, {anuncio.cor.toLowerCase()}.{" "}
+            {anuncio.preco ? `Valor: ${anuncio.preco}.` : rotulos.valorAConsultar + "."}{" "}
+            {anuncio.km}. {anuncio.documento}.
           </p>
           <ul>
             {stats.map((item) => (
@@ -82,7 +86,7 @@ export default function Home() {
               <li key={item.texto}>{item.texto}</li>
             ))}
           </ul>
-          <h3>O que ele resolve na prática</h3>
+          <h3>{diferenciaisTitulo}</h3>
           <ul>
             {diferenciais.map((item) => (
               <li key={item.titulo}>
@@ -103,7 +107,7 @@ export default function Home() {
           <h3>{chamadaFinal.titulo}</h3>
           <p>{chamadaFinal.subtitulo}</p>
           <p>
-            Contato direto com o dono: {anuncio.telefone} — {anuncio.cidade}.
+            Contato direto com o vendedor: {anuncio.telefone ?? anuncio.whatsappVisivel}.
           </p>
         </section>
 
@@ -121,7 +125,7 @@ export default function Home() {
       {/* Barra de contato fixa no celular */}
       <div className="fixed inset-x-0 bottom-0 z-[60] flex items-center justify-between gap-3 border-t border-white/10 bg-preto/90 px-4 py-3 backdrop-blur-md md:hidden">
         <div>
-          <p className="numerico text-[17px] font-semibold text-gelo">{anuncio.preco}</p>
+          <p className="numerico text-[17px] font-semibold text-gelo">{precoTexto}</p>
           <p className="text-[11px] uppercase tracking-[0.16em] text-grafite">
             {anuncio.ano} · {anuncio.km}
           </p>

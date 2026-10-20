@@ -7,7 +7,10 @@ import {
   chamadaFinal,
   detalhesMotor,
   diferenciais,
+  diferenciaisTitulo,
   estadoDoCarro,
+  precoTexto,
+  rotulos,
   rotuloSecoes,
   stats,
   visao,
@@ -734,13 +737,14 @@ export function CeltaScroll() {
                 {anuncio.ano}
               </p>
               <p className="mt-5 max-w-[46ch] text-[17px] leading-relaxed text-nevoa">
-                {anuncio.versao}. {anuncio.cidade}. Documentação em dia e pronto para o
-                dia a dia.
+                {anuncio.versao}, {anuncio.cor.toLowerCase()}. {anuncio.documento}.
               </p>
               <p className="numerico mt-7 text-[clamp(34px,5vw,60px)] font-semibold text-gelo">
-                {anuncio.preco}
+                {precoTexto}
               </p>
-              <p className="mt-1 text-sm text-grafite">{anuncio.precoObservacao}</p>
+              <p className="mt-1 text-sm text-grafite">
+                {anuncio.precoObservacao ?? "Documentação e laudo para conferir na visita"}
+              </p>
 
               <div className="vidro mt-8 grid grid-cols-2 gap-px overflow-hidden md:grid-cols-4">
                 {stats.map((item) => (
@@ -817,7 +821,7 @@ export function CeltaScroll() {
             <div className="scrim" aria-hidden="true" />
             <div className="relative mx-auto max-h-svh w-full max-w-[1000px] overflow-y-auto px-[6%] pt-16 pb-24 md:pb-16">
               <h2 className="display text-[clamp(34px,4.6vw,64px)]">
-                O que ele resolve na prática
+                {diferenciaisTitulo}
               </h2>
 
               {/* versão compacta: cabe na tela do celular sem rolagem interna */}
@@ -912,10 +916,14 @@ export function CeltaScroll() {
               </div>
               <div className="vidro-escuro mt-9 inline-flex flex-col gap-1 px-6 py-5 text-left">
                 <span className="text-[11px] uppercase tracking-[0.2em] text-grafite">
-                  Contato direto com o dono
+                  {rotulos.contatoDono}
                 </span>
-                <span className="numerico text-[15px] text-gelo">{anuncio.telefone}</span>
-                <span className="text-sm text-nevoa">{anuncio.cidade}</span>
+                <span className="numerico text-[15px] text-gelo">
+                  {anuncio.telefone ?? anuncio.whatsappVisivel}
+                </span>
+                <span className="text-sm text-nevoa">
+                  {anuncio.cidade ?? "Atendimento com horário marcado"}
+                </span>
               </div>
             </div>
           </article>

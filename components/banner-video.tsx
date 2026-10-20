@@ -2,7 +2,7 @@
 
 import { useCallback, useRef, useState } from "react";
 import { LetrasAnimadas } from "@/components/letras-animadas";
-import { anuncio, videoPromocional } from "@/lib/conteudo";
+import { anuncio, rotulos, videoPromocional } from "@/lib/conteudo";
 import { useRevelar } from "@/lib/revelar";
 
 /**
@@ -38,7 +38,8 @@ export function BannerVideo() {
         >
           <div>
             <p className="rotulo">
-              Vídeo promocional · {videoPromocional.duracao} · com áudio
+              {rotulos.videoPromocional} · {videoPromocional.duracao} ·{" "}
+              {rotulos.comSom.toLowerCase()}
             </p>
             <h2
               id="titulo-video"
@@ -61,7 +62,7 @@ export function BannerVideo() {
               preload="none"
               playsInline
               poster={videoPromocional.capa}
-              aria-label={`Vídeo promocional do Chevrolet ${anuncio.modelo} ${anuncio.ano}, ${videoPromocional.duracao}, com áudio`}
+              aria-label={`${rotulos.assistirVideo} do Chevrolet ${anuncio.modelo} ${anuncio.ano}, ${videoPromocional.duracao}, ${rotulos.comSom.toLowerCase()}`}
             >
               <source src={videoPromocional.arquivo} type="video/mp4" />
               <track
@@ -120,7 +121,7 @@ export function BannerVideo() {
                       <path d="M15.5 9.4a3.6 3.6 0 0 1 0 5.2" />
                       <path d="M18 6.8a7.2 7.2 0 0 1 0 10.4" />
                     </svg>
-                    Com som
+                    {rotulos.comSom}
                   </span>
                 </span>
 

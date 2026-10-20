@@ -1,4 +1,4 @@
-import { anuncio, navegacao } from "@/lib/conteudo";
+import { anuncio, navegacao, rotulos } from "@/lib/conteudo";
 
 /**
  * Navegação fina no topo (só desktop): links das seções e a marca ao centro.
@@ -53,7 +53,7 @@ export function NavTopo() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-1.5 text-[10px] uppercase tracking-[0.18em] text-gelo transition-colors duration-200 hover:border-ouro/60 hover:text-ouro"
             >
-              WhatsApp
+              {rotulos.rotuloWhatsapp}
               <svg
                 viewBox="0 0 24 24"
                 fill="none"
@@ -68,7 +68,7 @@ export function NavTopo() {
                 <path d="M5 12h13" />
                 <path d="M12.5 6l6 6-6 6" />
               </svg>
-              <span className="sr-only"> — abre conversa em nova aba</span>
+              <span className="sr-only">{rotulos.abreNovaAba}</span>
             </a>
           </li>
         </ul>
