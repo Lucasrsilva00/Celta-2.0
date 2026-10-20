@@ -40,5 +40,11 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# capturas de revisão visual
+# capturas de revisï¿½o visual
 .capturas/
+
+# netlify
+.netlify/
+
+# dados de formulï¿½rio gerados localmente
+data/leads.jsonl
