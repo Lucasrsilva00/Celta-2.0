@@ -7,6 +7,12 @@ import { barraNumeros, type NumeroBarra } from "@/lib/conteudo";
 function formatar(valor: number, formato: NumeroBarra["formato"]) {
   if (formato === "moeda") return `R$ ${valor.toLocaleString("pt-BR")}`;
   if (formato === "milhar") return valor.toLocaleString("pt-BR");
+  if (formato === "decimal") {
+    return valor.toLocaleString("pt-BR", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+  }
   return String(valor);
 }
 
@@ -33,7 +39,9 @@ function Numero({ item, ativo }: { item: NumeroBarra; ativo: boolean }) {
   }, [ativo, item.numero]);
 
   const texto =
-    item.numero === undefined ? item.valor : formatar(valor, item.formato);
+    item.numero === undefined
+      ? item.valor
+      : `${formatar(valor, item.formato)}${item.sufixo ?? ""}`;
 
   return (
     <p className="numerico text-[clamp(24px,3.2vw,38px)] font-semibold leading-none tracking-[-0.02em] text-gelo">
@@ -91,8 +99,8 @@ export function BarraNumeros() {
           </dl>
 
           <a
-            href="#sobre"
-            aria-label="Descer para os detalhes do carro"
+            href="#dores"
+            aria-label="Descer para a próxima seção"
             className="chevron-baixo"
           >
             <svg
