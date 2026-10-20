@@ -1,0 +1,32 @@
+{
+  "origem": {
+    "arquivo": "V\u00eddeo Celta 3D.mp4",
+    "duracao": 12.1,
+    "resolucao": "1280x720",
+    "fps": 24.0,
+    "codec": "hevc",
+    "total_quadros_origem": 290
+  },
+  "quadros": {
+    "quantidade_alvo": 120,
+    "formato": "webp",
+    "qualidade": 80,
+    "padrao_nomes": "frame-{NNNN}.webp"
+  },
+  "altura_scroll_recomendada": "400vh",
+  "criado_em": "2026-10-19T00:56:15",
+  "desktop": {
+    "resolucao": "1280x720",
+    "quantidade_real": 119,
+    "bytes_totais": 5928890,
+    "bytes_medios": 49822,
+    "total_mb": 5.65
+  },
+  "mobile": {
+    "resolucao": "854x480",
+    "quantidade_real": 119,
+    "bytes_totais": 3721432,
+    "bytes_medios": 31272,
+    "total_mb": 3.55
+  }
+}
