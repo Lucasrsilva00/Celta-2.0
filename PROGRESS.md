@@ -35,7 +35,7 @@ Plano de referência: documento **“SITE PUBLICITÁRIO | CHEVROLET CELTA 2012 L
 | `node scripts/teste-interacoes.mjs` | **16/16** — h1 único, âncoras, foco fora de `aria-hidden`, 23/23 imagens, selo de IA acima do overlay, números finais (3,79 m · 5 · 260 L · 691 km), calculadora, quiz, FAQ, formulário, agendador, vídeo, console limpo, sem placeholders, 404 e barra mobile |
 | `node scripts/teste-pasta.mjs` | abrir/fechar, abas, setas, miniaturas, `Esc`, foco devolvido e movimento reduzido |
 | `node scripts/teste-video.mjs` | toca com áudio, 1280×720, 10,08 s, H.264, controles nativos e legenda pt-BR |
-| `node scripts/desempenho.mjs` | 59,9 fps, 0 tarefas longas, 3,7 MB de heap, 2.219 nós, primeiro quadro em 0,73 s |
+| `node scripts/desempenho.mjs` | 59,8–59,9 fps, 0 tarefas longas, 3,6–3,7 MB de heap, 2.219 nós, primeiro quadro entre 0,71 s e 1,20 s |
 | `node scripts/capturas.mjs` | capturas desktop/mobile de todas as seções em `.capturas/` |
 
 ## Dados confirmados
@@ -75,7 +75,7 @@ valor foi inventado.
 ## Git
 
 - Commits anteriores: `4dd5caf`, `53566a7` (base), `58f21e2` e `62a20ca` (dados/FIPE).
-- Trabalho das Etapas 2–8 nesta sessão: ver histórico `git log` (commits `feat/*` e `docs/*`).
+- Trabalho das Etapas 2–8 nesta sessão: ver histórico `git log` (commits `feat/*`, `test/*`, `fix/*` e `docs/*`).
 - Tags previstas/atribuídas: `v0.3`, `v0.6`, `v1.0.0`.
 - **Nada foi enviado para `origin`.** Push e deploy exigem autorização.
 
