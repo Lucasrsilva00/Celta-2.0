@@ -7,6 +7,12 @@ import { barraNumeros, type NumeroBarra } from "@/lib/conteudo";
 function formatar(valor: number, formato: NumeroBarra["formato"]) {
   if (formato === "moeda") return `R$ ${valor.toLocaleString("pt-BR")}`;
   if (formato === "milhar") return valor.toLocaleString("pt-BR");
+  if (formato === "decimal") {
+    return valor.toLocaleString("pt-BR", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+  }
   return String(valor);
 }
 
@@ -24,16 +30,23 @@ function Numero({ item, ativo }: { item: NumeroBarra; ativo: boolean }) {
     const passo = (agora: number) => {
       const tempo = Math.min(1, (agora - inicio) / 1200);
       const aliviado = 1 - Math.pow(1 - tempo, 3);
-      setValor(Math.round(alvo * aliviado));
+      const bruto = alvo * aliviado;
+      setValor(
+        item.formato === "decimal"
+          ? Math.round(bruto * 100) / 100
+          : Math.round(bruto),
+      );
       if (tempo < 1) quadro = requestAnimationFrame(passo);
     };
 
     quadro = requestAnimationFrame(passo);
     return () => cancelAnimationFrame(quadro);
-  }, [ativo, item.numero]);
+  }, [ativo, item.numero, item.formato]);
 
   const texto =
-    item.numero === undefined ? item.valor : formatar(valor, item.formato);
+    item.numero === undefined
+      ? item.valor
+      : `${formatar(valor, item.formato)}${item.sufixo ?? ""}`;
 
   return (
     <p className="numerico text-[clamp(24px,3.2vw,38px)] font-semibold leading-none tracking-[-0.02em] text-gelo">
@@ -44,8 +57,8 @@ function Numero({ item, ativo }: { item: NumeroBarra; ativo: boolean }) {
 }
 
 /**
- * Barra de números logo abaixo da animação — o "810 KM/H · 200 KM/H · ..." do
- * template, com contadores que sobem quando a barra entra na tela.
+ * Barra com os quatro números do carro, com contadores que sobem quando ela
+ * entra na tela.
  */
 export function BarraNumeros() {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -91,8 +104,8 @@ export function BarraNumeros() {
           </dl>
 
           <a
-            href="#sobre"
-            aria-label="Descer para os detalhes do carro"
+            href="#galeria"
+            aria-label="Descer para as fotos"
             className="chevron-baixo"
           >
             <svg

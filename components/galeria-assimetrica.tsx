@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { LetrasAnimadas } from "@/components/letras-animadas";
-import { galeriaAssimetrica } from "@/lib/conteudo";
+import { galeriaAssimetrica, rotulos } from "@/lib/conteudo";
 import { useRevelar } from "@/lib/revelar";
 
 /** Galeria assimétrica do template: uma foto grande à esquerda e duas à direita. */
@@ -49,9 +49,11 @@ export function GaleriaAssimetrica() {
                 <p className="text-[11px] uppercase tracking-[0.18em] text-gelo">
                   {destaque.rotulo}
                 </p>
-                <p className="mt-1 max-w-[42ch] text-[13px] leading-snug text-nevoa">
-                  {destaque.nota}
-                </p>
+                {destaque.nota && (
+                  <p className="mt-1 max-w-[42ch] text-[13px] leading-snug text-nevoa">
+                    {destaque.nota}
+                  </p>
+                )}
               </div>
             </figure>
 
@@ -74,12 +76,23 @@ export function GaleriaAssimetrica() {
                   <p className="text-[11px] uppercase tracking-[0.18em] text-gelo">
                     {foto.rotulo}
                   </p>
-                  <p className="mt-1 text-[13px] leading-snug text-nevoa">
-                    {foto.nota}
-                  </p>
+                  {foto.nota && (
+                    <p className="mt-1 text-[13px] leading-snug text-nevoa">
+                      {foto.nota}
+                    </p>
+                  )}
                 </div>
               </figure>
             ))}
+          </div>
+
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between" data-revelar>
+            <p className="display-forte text-[clamp(22px,3vw,34px)]">
+              {galeriaAssimetrica.chamada}
+            </p>
+            <a href="#contato" className="pill pill-ouro shrink-0">
+              {rotulos.agendar}
+            </a>
           </div>
         </div>
       </div>

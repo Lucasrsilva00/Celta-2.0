@@ -1,4 +1,4 @@
-import { anuncio, navegacao } from "@/lib/conteudo";
+import { navegacao, rotulos, site, whatsappLinks } from "@/lib/conteudo";
 
 /**
  * Navegação fina no topo (só desktop): links das seções e a marca ao centro.
@@ -29,10 +29,10 @@ export function NavTopo() {
 
         <a
           href="#conteudo"
-          aria-label={`${anuncio.modelo} ${anuncio.ano} — voltar ao início`}
+          aria-label={`${site.nome} — voltar ao início`}
           className="display text-[15px] tracking-[0.42em] text-gelo transition-colors duration-200 hover:text-ouro"
         >
-          {anuncio.modelo}
+          {site.nome}
         </a>
 
         <ul className="flex items-center gap-7">
@@ -46,31 +46,33 @@ export function NavTopo() {
               </a>
             </li>
           ))}
-          <li>
-            <a
-              href={anuncio.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-1.5 text-[10px] uppercase tracking-[0.18em] text-gelo transition-colors duration-200 hover:border-ouro/60 hover:text-ouro"
-            >
-              WhatsApp
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth={1.8}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-                focusable="false"
-                className="h-3 w-3"
+          {whatsappLinks.geral && (
+            <li>
+              <a
+                href={whatsappLinks.geral}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-white/20 px-4 py-1.5 text-[10px] uppercase tracking-[0.18em] text-gelo transition-colors duration-200 hover:border-ouro/60 hover:text-ouro"
               >
-                <path d="M5 12h13" />
-                <path d="M12.5 6l6 6-6 6" />
-              </svg>
-              <span className="sr-only"> — abre conversa em nova aba</span>
-            </a>
-          </li>
+                {rotulos.rotuloWhatsapp}
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={1.8}
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                  focusable="false"
+                  className="h-3 w-3"
+                >
+                  <path d="M5 12h13" />
+                  <path d="M12.5 6l6 6-6 6" />
+                </svg>
+                <span className="sr-only">{rotulos.abreNovaAba}</span>
+              </a>
+            </li>
+          )}
         </ul>
       </div>
     </nav>

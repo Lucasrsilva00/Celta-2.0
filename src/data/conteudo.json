@@ -1,0 +1,533 @@
+{
+  "site": {
+    "nome": "Celta 2.0",
+    "marca": "CELTA"
+  },
+  "navegacao": [
+    {
+      "rotulo": "Por que o Celta",
+      "href": "#beneficios"
+    },
+    {
+      "rotulo": "Fotos",
+      "href": "#fotos"
+    },
+    {
+      "rotulo": "Preço",
+      "href": "#preco"
+    },
+    {
+      "rotulo": "Vídeo",
+      "href": "#video"
+    },
+    {
+      "rotulo": "Contato",
+      "href": "#contato"
+    }
+  ],
+  "rotulos": {
+    "consultar": "Consultar",
+    "valorAConsultar": "Valor a consultar",
+    "comSom": "Com som",
+    "videoPromocional": "Vídeo promocional",
+    "assistirVideo": "Assistir ao vídeo promocional",
+    "abreWhatsApp": " — abre conversa no WhatsApp",
+    "abreNovaAba": " — abre conversa em nova aba",
+    "rotuloWhatsapp": "WhatsApp",
+    "contatoDono": "Contato direto com a Sanderscarr",
+    "imagensIlustrativas": "Imagens ilustrativas geradas por IA",
+    "videoIlustrativo": "Vídeo ilustrativo criado com inteligência artificial. O carro à venda é o das fotos reais.",
+    "animacaoIlustrativa": "Animação ilustrativa · IA",
+    "verDePerto": "Ver o carro de perto",
+    "agendar": "Agendar test drive",
+    "falarWhatsapp": "Falar no WhatsApp",
+    "documentacao": "Fale direto com a Sanderscarr",
+    "fipe": "Tabela FIPE"
+  },
+  "apresentacao": {
+    "rotulos": [
+      "Abertura",
+      "Dores",
+      "Por que o Celta LT",
+      "O preço",
+      "Compra sem susto",
+      "Agendar test drive"
+    ],
+    "carregando": "Dando a partida…"
+  },
+  "hero": {
+    "etiqueta": "CELTA LT 1.0 FLEX · 2012 · PRETO",
+    "titulo": "Seu próximo carro cabe na vida real.",
+    "subtitulo": "Compacto, flex e fácil de manter. Veja de todos os ângulos e venha dirigir.",
+    "botaoPrincipal": "Agendar test drive",
+    "botaoSecundario": "Ver o carro de perto",
+    "dicaRolagem": "Role e dê uma volta no Celta",
+    "valorConsultar": "Valor a consultar",
+    "nota": "Fale direto com a Sanderscarr e confira o carro de perto."
+  },
+  "dores": {
+    "rotulo": "Identificação",
+    "titulo": "Você já passou por isso?",
+    "itens": [
+      {
+        "icone": "compacto",
+        "texto": "Rodou o bairro inteiro atrás de vaga."
+      },
+      {
+        "icone": "economia",
+        "texto": "Olhou a bomba de combustível e doeu."
+      },
+      {
+        "icone": "escudo",
+        "texto": "Teve medo de comprar um usado e se arrepender."
+      },
+      {
+        "icone": "dia",
+        "texto": "Quis um carro simples, sem complicação."
+      }
+    ],
+    "fecho": "Então vem conhecer este Celta."
+  },
+  "beneficios": {
+    "rotulo": "Solução",
+    "titulo": "Por que o Celta LT",
+    "itens": [
+      {
+        "icone": "compacto",
+        "titulo": "Cabe em qualquer vaga.",
+        "texto": "Com 3,79 m, estacionar deixa de ser um desafio."
+      },
+      {
+        "icone": "economia",
+        "titulo": "Abasteça com o que estiver mais barato.",
+        "texto": "Motor 1.0 flex: gasolina ou etanol, você escolhe na hora."
+      },
+      {
+        "icone": "imposto",
+        "titulo": "Simples de manter.",
+        "texto": "Carro popular, mecânica descomplicada e conta que fecha no fim do mês."
+      },
+      {
+        "icone": "dia",
+        "titulo": "Espaço para quem importa.",
+        "texto": "Cinco lugares e 260 litros de porta-malas para a vida real."
+      }
+    ]
+  },
+  "numeros": {
+    "rotulo": "Prova",
+    "titulo": "O que ele entrega",
+    "rotulos": [
+      "de comprimento",
+      "lugares",
+      "de porta-malas",
+      "com um tanque (estrada, gasolina)"
+    ],
+    "nota": "Dados de ficha técnica. O consumo real varia com o uso."
+  },
+  "fotos": {
+    "legendas": {
+      "01-vista-frontal.webp": "Cara de quem não dá trabalho.",
+      "02-vista-3-4-diagonal.webp": "Chegou para ficar.",
+      "03-vista-lateral-esquerda.webp": "Linhas simples que não saem de moda.",
+      "04-vista-traseira.webp": "Porta-malas generoso.",
+      "05-vista-lateral-direita.webp": null,
+      "06-vista-superior.webp": null,
+      "07-bancos-dianteiros.webp": "Lugar para todo mundo.",
+      "08-bancos-traseiros.webp": null,
+      "09-painel.webp": "Tudo no lugar, sem enrolação.",
+      "10-interior-frontal.webp": null,
+      "11-motor.webp": "1.0 flex, conhecido por qualquer mecânico.",
+      "12-rodas-e-pneus.webp": "Pneus e rodas à mostra: nada escondido.",
+      "13-farois.webp": null,
+      "14-grade-frontal.webp": null,
+      "15-detalhe-traseiro.webp": null
+    },
+    "itens": [
+      {
+        "arquivo": "01-vista-frontal.webp",
+        "alt": "Frente do Celta 2012 preto, com a grade do Chevrolet, os faróis e a placa CELTA",
+        "rotulo": "Vista frontal",
+        "regiao": "Exterior",
+        "aspecto": 1.9
+      },
+      {
+        "arquivo": "02-vista-3-4-diagonal.webp",
+        "alt": "Celta 2012 preto visto em diagonal, mostrando a frente e a lateral direita",
+        "rotulo": "Vista 3/4",
+        "regiao": "Exterior",
+        "aspecto": 1.9
+      },
+      {
+        "arquivo": "03-vista-lateral-esquerda.webp",
+        "alt": "Lateral esquerda do Celta 2012 preto, com as duas portas fechadas",
+        "rotulo": "Lateral esquerda",
+        "regiao": "Exterior",
+        "aspecto": 1.9
+      },
+      {
+        "arquivo": "04-vista-traseira.webp",
+        "alt": "Traseira do Celta 2012 preto, com as lanternas vermelhas e a placa CELTA",
+        "rotulo": "Vista traseira",
+        "regiao": "Exterior",
+        "aspecto": 1.85
+      },
+      {
+        "arquivo": "05-vista-lateral-direita.webp",
+        "alt": "Lateral direita do Celta 2012 preto em perfil, com as duas rodas visíveis",
+        "rotulo": "Lateral direita",
+        "regiao": "Exterior",
+        "aspecto": 1.85
+      },
+      {
+        "arquivo": "06-vista-superior.webp",
+        "alt": "Vista de cima do Celta 2012 preto, mostrando teto, para-brisa e janelas",
+        "rotulo": "Vista superior",
+        "regiao": "Exterior",
+        "aspecto": 1.85
+      },
+      {
+        "arquivo": "07-bancos-dianteiros.webp",
+        "alt": "Bancos dianteiros do Celta 2012 em tecido escuro, com o volante à esquerda",
+        "rotulo": "Bancos dianteiros",
+        "regiao": "Interior",
+        "aspecto": 1.85
+      },
+      {
+        "arquivo": "08-bancos-traseiros.webp",
+        "alt": "Banco traseiro do Celta 2012 em tecido escuro, com cintos e encostos de cabeça",
+        "rotulo": "Bancos traseiros",
+        "regiao": "Interior",
+        "aspecto": 2
+      },
+      {
+        "arquivo": "09-painel.webp",
+        "alt": "Painel do Celta 2012 com volante, quadro de instrumentos e console central",
+        "rotulo": "Painel",
+        "regiao": "Interior",
+        "aspecto": 2
+      },
+      {
+        "arquivo": "10-interior-frontal.webp",
+        "alt": "Interior do Celta 2012 visto da porta do motorista, com os bancos dianteiros",
+        "rotulo": "Interior frontal",
+        "regiao": "Interior",
+        "aspecto": 2
+      },
+      {
+        "arquivo": "11-motor.webp",
+        "alt": "Motor 1.0 do Celta 2012 com o capô aberto, mostrando o cabeçote e os reservatórios",
+        "rotulo": "Motor",
+        "regiao": "Motor",
+        "aspecto": 2
+      },
+      {
+        "arquivo": "12-rodas-e-pneus.webp",
+        "alt": "Roda de liga e pneu do Celta 2012 em close",
+        "rotulo": "Rodas e pneus",
+        "regiao": "Detalhes",
+        "aspecto": 2
+      },
+      {
+        "arquivo": "13-farois.webp",
+        "alt": "Farol dianteiro do Celta 2012 em close, com a lente transparente",
+        "rotulo": "Faróis",
+        "regiao": "Detalhes",
+        "aspecto": 2
+      },
+      {
+        "arquivo": "14-grade-frontal.webp",
+        "alt": "Grade frontal do Celta 2012 com o emblema dourado da Chevrolet",
+        "rotulo": "Grade frontal",
+        "regiao": "Detalhes",
+        "aspecto": 2
+      },
+      {
+        "arquivo": "15-detalhe-traseiro.webp",
+        "alt": "Lanterna traseira vermelha do Celta 2012, com a inscrição CELTA ao lado",
+        "rotulo": "Detalhe traseiro",
+        "regiao": "Detalhes",
+        "aspecto": 2
+      }
+    ],
+    "galeria": {
+      "rotulo": "Veja de perto",
+      "titulo": "O carro por fora e por dentro",
+      "descricao": "Traseira, painel e motor: os três lugares onde um carro usado conta a verdade.",
+      "chamada": "Gostou do que viu? Venha ver ao vivo.",
+      "destaque": "04-vista-traseira.webp",
+      "laterais": [
+        "09-painel.webp",
+        "11-motor.webp"
+      ]
+    },
+    "pasta": {
+      "rotulo": "Todas as partes",
+      "titulo": "A pasta com as 15 fotos",
+      "descricao": "Estão todas aqui dentro: por fora, por dentro, embaixo do capô e nos detalhes que a maioria dos anúncios esconde.",
+      "aba": "Fotos",
+      "capaTitulo": "15 fotos, uma por vez",
+      "capaTexto": "Cada parte em uma foto grande, sem mural de fotos. Escolha por onde começar.",
+      "abrir": "Abrir a pasta de fotos",
+      "fechar": "Fechar a pasta",
+      "abas": [
+        "Todas",
+        "Exterior",
+        "Interior",
+        "Motor",
+        "Detalhes"
+      ]
+    }
+  },
+  "preco": {
+    "rotulo": "Prova",
+    "titulo": "O preço conversa com a tabela FIPE.",
+    "texto": "A FIPE é a média de preços do mercado, publicada todo mês. Compare e tire suas conclusões.",
+    "nota": "FIPE de out/2026, Celta LT 1.0 Flex (código 004321-4). É referência, não garantia de preço.",
+    "selo": {
+      "abaixo": "{percentual}% abaixo da tabela FIPE de referência.",
+      "igual": "No valor da tabela FIPE de referência.",
+      "semPreco": "FIPE de referência: {fipe}. Valor deste carro: consultar."
+    },
+    "calculadora": {
+      "titulo": "Quanto este Celta gasta no seu mês?",
+      "km": "Km por mês",
+      "gasolina": "Preço da gasolina (R$)",
+      "etanol": "Preço do etanol (R$)",
+      "cidade": "% de cidade",
+      "resultado": "Com gasolina: {gasolina} por mês. Com etanol: {etanol}. Hoje compensa abastecer com {combustivel}.",
+      "aviso": "Estimativa com dados de ficha. O consumo real varia.",
+      "incompleto": "Informe quilometragem e preços para ver a estimativa."
+    },
+    "semPrecoTexto": "O valor do anúncio ainda não foi definido. Fale direto com a Sanderscarr para saber o preço atual e negociar sem pressa.",
+    "comPrecoTexto": "Valor definido pela Sanderscarr. Confirme as condições e a documentação na visita."
+  },
+  "video": {
+    "rotulo": "Em movimento",
+    "titulo": "Veja o Celta em movimento.",
+    "subtitulo": "Dez segundos no showroom, com áudio. Mesmo carro das fotos, do jeito que ele é de perto.",
+    "legendaTitulo": "Vídeo de showroom",
+    "badge": "Vídeo ilustrativo · IA",
+    "aviso": "Vídeo ilustrativo criado com inteligência artificial. O carro à venda é o das fotos reais.",
+    "duracao": "10 s",
+    "botao": "Agendar test drive",
+    "arquivo": "/videos/celta-promocional.mp4",
+    "capa": "/videos/celta-promocional-capa.webp",
+    "legendas": "/videos/celta-promocional.vtt"
+  },
+  "compraSemSusto": {
+    "rotulo": "Redução de risco",
+    "titulo": "Compra sem susto.",
+    "frase": "Quem vende um carro bom não tem medo de checagem. Leve o nosso checklist.",
+    "itens": [
+      {
+        "id": "documentacao",
+        "texto": "Documentação em dia.",
+        "confirmado": false
+      },
+      {
+        "id": "laudo",
+        "texto": "Laudo cautelar disponível.",
+        "confirmado": false
+      },
+      {
+        "id": "test-drive",
+        "texto": "Test drive sem compromisso.",
+        "confirmado": false
+      },
+      {
+        "id": "troca",
+        "texto": "Aceitamos seu carro na troca.",
+        "confirmado": false
+      },
+      {
+        "id": "financiamento",
+        "texto": "Financiamento com simulação.",
+        "confirmado": false
+      }
+    ],
+    "checklist": {
+      "titulo": "Checklist de test drive",
+      "descricao": "Dez pontos para conferir com calma, com o carro parado e depois dirigindo.",
+      "itens": [
+        "Documento do carro e CRLV",
+        "Chassi e número do motor",
+        "Laudo cautelar",
+        "Pneus: desgaste e bolhas",
+        "Nível e cor do óleo",
+        "Vazamentos sob o carro",
+        "Luzes e faróis",
+        "Embreagem e marchas",
+        "Freios",
+        "Suspensão: ruídos e folgas"
+      ],
+      "baixar": "Baixar checklist",
+      "arquivo": "/checklist-test-drive.txt",
+      "verItens": "Ver os 10 itens"
+    },
+    "combinacoesTitulo": "Combinações direto com o vendedor",
+    "observacao": "Documentação, laudo, troca e financiamento são combinados direto com a Sanderscarr e podem ser conferidos na visita."
+  },
+  "perguntas": {
+    "rotulo": "Objeções",
+    "titulo": "Perguntas",
+    "descricao": "O que todo mundo pergunta antes de marcar um test drive.",
+    "itens": [
+      {
+        "pergunta": "Posso fazer test drive?",
+        "resposta": null
+      },
+      {
+        "pergunta": "Aceita troca?",
+        "resposta": null
+      },
+      {
+        "pergunta": "Tem financiamento?",
+        "resposta": null
+      },
+      {
+        "pergunta": "Qual a quilometragem?",
+        "resposta": null
+      },
+      {
+        "pergunta": "O preço negocia?",
+        "resposta": null
+      }
+    ],
+    "fallback": "Ainda não confirmado. Pergunte direto para a Sanderscarr.",
+    "link": "Perguntar no WhatsApp"
+  },
+  "quiz": {
+    "rotulo": "Interativo",
+    "titulo": "Este Celta combina com você?",
+    "descricao": "Três perguntas rápidas. O resultado é honesto: se não combinar, a gente fala.",
+    "botao": "Ver resultado",
+    "perguntas": [
+      {
+        "id": "uso",
+        "pergunta": "Onde você dirige?",
+        "opcoes": [
+          {
+            "rotulo": "Na cidade, quase sempre",
+            "pontos": 2
+          },
+          {
+            "rotulo": "Um pouco de tudo",
+            "pontos": 2
+          },
+          {
+            "rotulo": "Mais estrada",
+            "pontos": 1
+          }
+        ]
+      },
+      {
+        "id": "pessoas",
+        "pergunta": "Quantas pessoas andam com você?",
+        "opcoes": [
+          {
+            "rotulo": "1 a 2",
+            "pontos": 2
+          },
+          {
+            "rotulo": "3 a 4",
+            "pontos": 2
+          },
+          {
+            "rotulo": "5 ou mais",
+            "pontos": 1
+          }
+        ]
+      },
+      {
+        "id": "cambio",
+        "pergunta": "Câmbio manual está tudo bem?",
+        "opcoes": [
+          {
+            "rotulo": "Sem problema",
+            "pontos": 2
+          },
+          {
+            "rotulo": "Nunca dirigi manual",
+            "pontos": 1
+          },
+          {
+            "rotulo": "Prefiro automático",
+            "pontos": 0
+          }
+        ]
+      }
+    ],
+    "resultados": [
+      {
+        "minimo": 5,
+        "titulo": "Combina muito",
+        "texto": "Pelo que você contou, este Celta foi feito para o seu dia a dia."
+      },
+      {
+        "minimo": 3,
+        "titulo": "Combina bem",
+        "texto": "Ele resolve a maior parte do que você precisa. Vale conhecer de perto."
+      },
+      {
+        "minimo": 0,
+        "titulo": "Vale testar antes",
+        "texto": "Talvez não seja o encaixe perfeito. Um test drive sem compromisso resolve a dúvida."
+      }
+    ],
+    "refazer": "Refazer"
+  },
+  "chamadaFinal": {
+    "rotulo": "Contato direto com a Sanderscarr",
+    "titulo": "Este Celta está esperando você.",
+    "texto": "Deixe seu contato e a Sanderscarr retorna para marcar o test drive.",
+    "principal": "Agendar test drive",
+    "whatsapp": "Falar no WhatsApp",
+    "secundario": "Rever a apresentação",
+    "form": {
+      "nome": "Seu nome",
+      "telefone": "Telefone com DDD",
+      "mensagem": "Mensagem (opcional)",
+      "enviar": "Enviar contato",
+      "nota": "Ao enviar, abrimos o WhatsApp com sua mensagem. Nada é armazenado neste site.",
+      "sucesso": "Abrimos o WhatsApp com sua mensagem. Se a janela não abrir, fale direto com a Sanderscarr.",
+      "erro": "Não conseguimos abrir o WhatsApp agora. Tente de novo ou chame direto no número abaixo.",
+      "erroNome": "Informe seu nome.",
+      "erroTelefone": "Informe o telefone com DDD."
+    },
+    "agendador": {
+      "titulo": "Prefere escolher dia e horário?",
+      "texto": "Monte a mensagem com o dia e o período que funcionam para você.",
+      "dia": "Dia",
+      "periodo": "Período",
+      "periodos": [
+        "Manhã",
+        "Tarde"
+      ],
+      "botao": "Montar mensagem de test drive",
+      "mensagem": "Quero test drive no dia {dia}, período {periodo}.",
+      "erroDia": "Escolha o dia da visita.",
+      "erroWhatsapp": "WhatsApp não configurado. Fale pelo telefone do rodapé."
+    },
+    "semWhatsapp": "WhatsApp ainda não configurado. Fale com a Sanderscarr pelo telefone do rodapé."
+  },
+  "whatsapp": {
+    "geral": "Olá! Vi o Celta LT 2012 preto no site e quero mais informações.",
+    "testDrive": "Olá! Quero agendar um test drive do Celta LT 2012. Quais dias e horários vocês têm?",
+    "troca": "Olá! Tenho um [modelo/ano] e quero saber se aceitam na troca pelo Celta LT 2012."
+  },
+  "voz": {
+    "abertura": "Oi! Pode chegar mais perto e me olhar por todos os lados.",
+    "fotos": "Estas fotos são do meu exemplar.",
+    "preco": "Não precisa acreditar em mim. Compare com a FIPE.",
+    "final": "Vamos marcar o test drive? Eu levo o resto da conversa.",
+    "carregando": "Dando a partida…",
+    "erro404": "Esse caminho não leva a lugar nenhum. Volte para a estrada."
+  },
+  "rodape": {
+    "aviso": "Valores e condições sujeitos a negociação presencial. A animação e o vídeo são ilustrativos e gerados com IA; as fotos são do carro à venda. Confira o carro de perto antes de decidir.",
+    "horarioFallback": "Atendimento com horário marcado",
+    "enderecoFallback": "Endereço a confirmar",
+    "creditos": "Celta 2.0 · anúncio da Sanderscarr"
+  }
+}

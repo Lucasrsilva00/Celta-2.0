@@ -1,0 +1,45 @@
+{
+  "carro": {
+    "marca": "Chevrolet",
+    "modelo": "Celta",
+    "versao": "LT 1.0 Flex",
+    "anoModelo": 2012,
+    "cor": "Preto",
+    "portas": "4 portas + porta-malas",
+    "km": null,
+    "preco": null,
+    "itens": []
+  },
+  "numeros": {
+    "comprimentoM": 3.79,
+    "lugares": 5,
+    "portaMalasL": 260,
+    "tanqueL": 54,
+    "consumo": {
+      "cidade": {
+        "gasolina": 10.7,
+        "etanol": 7.6
+      },
+      "estrada": {
+        "gasolina": 12.8,
+        "etanol": 8.7
+      }
+    }
+  },
+  "fipe": {
+    "referencia": "2026-10",
+    "referenciaLabel": "out/2026",
+    "codigo": "004321-4",
+    "versao": "Celta Spirit/LT 1.0 MPFI 8V FlexP. 5p",
+    "valor": 30356
+  },
+  "empresa": {
+    "nome": "Sanderscarr",
+    "whatsapp": "5519991427358",
+    "whatsappVisivel": "+55 (19) 99142-7358",
+    "whatsappConfirmado": false,
+    "telefone": null,
+    "endereco": null,
+    "horario": null
+  }
+}

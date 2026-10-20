@@ -3,15 +3,26 @@
 import { useCallback, useEffect, useRef, useState, type ReactNode } from "react";
 import {
   anuncio,
+  beneficios,
+  carro,
   centroSecoes,
   chamadaFinal,
-  detalhesMotor,
-  diferenciais,
-  estadoDoCarro,
+  compraSemSusto,
+  dores,
+  empresa,
+  fipe,
+  fipeTexto,
+  formatarMoeda,
+  hero,
+  preco as precoSecao,
+  precoTexto,
+  rotulos,
   rotuloSecoes,
-  stats,
-  visao,
+  site,
+  vozDoCelta,
+  whatsappLinks,
 } from "@/lib/conteudo";
+import { LetrasAnimadas } from "@/components/letras-animadas";
 
 /* ---------------------------------------------------------------------------
    Constantes do motor
@@ -156,23 +167,6 @@ function Icone({ nome, className }: { nome: string; className?: string }) {
     >
       {caminho}
     </svg>
-  );
-}
-
-/* ---------------------------------------------------------------------------
-   Blocos de conteúdo reaproveitados nos overlays
-   --------------------------------------------------------------------------- */
-function BotaoPrincipal({ className = "" }: { className?: string }) {
-  return (
-    <a
-      href={anuncio.whatsapp}
-      target="_blank"
-      rel="noopener noreferrer"
-      className={`inline-flex min-h-[52px] items-center justify-center rounded-full bg-gelo px-7 text-[15px] font-semibold text-preto transition-colors duration-200 hover:bg-ouro hover:shadow-[0_0_36px_var(--ouro-brilho)] active:scale-[0.98] ${className}`}
-    >
-      {chamadaFinal.principal}
-      <span className="sr-only"> — abre conversa no WhatsApp</span>
-    </a>
   );
 }
 
@@ -622,8 +616,11 @@ export function CeltaScroll() {
               <path d="M3.5 7.5h6l2.5-3 2.5 3h6v5h-6l-2.5 3-2.5-3h-6z" />
             </svg>
             <p className="display text-3xl tracking-[0.42em] text-gelo">
-              {anuncio.modelo}
+              {site.marca}
             </p>
+            <span className="text-[11px] uppercase tracking-[0.28em] text-nevoa">
+              {vozDoCelta.carregando}
+            </span>
             <span className="h-px w-40 bg-white/20" aria-hidden="true" />
             <span className="loader-barra" aria-hidden="true">
               <span ref={barraRef} className="loader-progresso block" />
@@ -674,7 +671,7 @@ export function CeltaScroll() {
             className="display vazado pointer-events-none absolute inset-x-0 bottom-[-3.5vw] z-[5] text-center text-[clamp(140px,26vw,420px)]"
             style={{ opacity: 0 }}
           >
-            {anuncio.modelo}
+            {site.marca}
           </span>
 
           <canvas
@@ -702,6 +699,10 @@ export function CeltaScroll() {
             }}
           />
 
+          <p className="pointer-events-none absolute bottom-20 left-[6%] z-[11] rounded-full border border-white/10 bg-preto/55 px-2.5 py-1 text-[10px] uppercase tracking-[0.2em] text-nevoa backdrop-blur-sm md:bottom-5">
+            {rotulos.animacaoIlustrativa}
+          </p>
+
           {/* 1 — Abertura */}
           <article
             ref={(el) => {
@@ -711,53 +712,50 @@ export function CeltaScroll() {
             aria-hidden="true"
           >
             <div className="mx-auto max-h-svh w-full max-w-[1180px] overflow-y-auto px-[6%] pt-16 pb-28 md:pb-16">
-              <h1 id="titulo-celta" className="display text-[clamp(64px,12vw,176px)]">
-                <span className="sr-only">
-                  {anuncio.modelo} {anuncio.ano} à venda
-                </span>
-                <span aria-hidden="true">
-                  {"CELTA".split("").map((letra, indice) => (
-                    <span
-                      key={`${letra}-${indice}`}
-                      className="letra"
-                      style={{
-                        animationDelay: `${120 + indice * 70}ms`,
-                        animationPlayState: carregando ? "paused" : "running",
-                      }}
-                    >
-                      {letra}
-                    </span>
-                  ))}
-                </span>
-              </h1>
-              <p className="display -mt-2 text-[clamp(28px,4vw,56px)] text-ouro">
-                {anuncio.ano}
-              </p>
-              <p className="mt-5 max-w-[46ch] text-[17px] leading-relaxed text-nevoa">
-                {anuncio.versao}. {anuncio.cidade}. Documentação em dia e pronto para o
-                dia a dia.
-              </p>
-              <p className="numerico mt-7 text-[clamp(34px,5vw,60px)] font-semibold text-gelo">
-                {anuncio.preco}
-              </p>
-              <p className="mt-1 text-sm text-grafite">{anuncio.precoObservacao}</p>
+              <p className="rotulo">{hero.etiqueta}</p>
 
-              <div className="vidro mt-8 grid grid-cols-2 gap-px overflow-hidden md:grid-cols-4">
-                {stats.map((item) => (
-                  <div key={item.rotulo} className="bg-preto/45 px-4 py-4">
-                    <p className="numerico display text-[clamp(24px,3vw,36px)] text-gelo">
-                      {item.valor}
-                    </p>
-                    <p className="mt-1 text-[11px] uppercase tracking-[0.16em] text-nevoa">
-                      {item.rotulo}
-                    </p>
-                  </div>
-                ))}
+              <p
+                id="titulo-celta"
+                className="display-forte mt-4 max-w-[16ch] text-[clamp(40px,6.4vw,88px)]"
+              >
+                <LetrasAnimadas texto={hero.titulo} />
+                <span className="sr-only">
+                  {" "}
+                  {anuncio.modelo} {anuncio.ano} à venda.
+                </span>
+              </p>
+
+              <p className="display mt-4 text-[clamp(30px,4.4vw,60px)] text-ouro">
+                {anuncio.modelo} {anuncio.ano}
+              </p>
+
+              <p className="mt-5 max-w-[48ch] text-[17px] leading-relaxed text-nevoa">
+                {hero.subtitulo}
+              </p>
+
+              <p className="numerico mt-7 text-[clamp(30px,4.4vw,54px)] font-semibold text-gelo">
+                {precoTexto}
+              </p>
+              <p className="mt-1 text-sm text-grafite">{hero.nota}</p>
+
+              <div className="mt-8 flex flex-wrap items-center gap-3">
+                <a href="#contato" className="pill pill-ouro" tabIndex={-1}>
+                  {hero.botaoPrincipal}
+                </a>
+                <a href="#fotos" className="pill" tabIndex={-1}>
+                  {hero.botaoSecundario}
+                </a>
               </div>
+
+              <p className="mt-8 flex items-center gap-2 text-[11px] uppercase tracking-[0.2em] text-grafite">
+                <span className="h-px w-8 bg-ouro/70" aria-hidden="true" />
+                {hero.dicaRolagem}
+              </p>
+              <p className="sr-only">{vozDoCelta.abertura}</p>
             </div>
           </article>
 
-          {/* 2 — Visão */}
+          {/* 2 — Dores */}
           <article
             ref={(el) => {
               overlaysRef.current[1] = el;
@@ -767,21 +765,26 @@ export function CeltaScroll() {
           >
             <div className="scrim" aria-hidden="true" />
             <div className="relative mx-auto max-h-svh w-full max-w-[900px] overflow-y-auto px-[6%] pt-16 pb-24 md:pb-16">
-              <span className="display block text-[80px] leading-none text-ouro" aria-hidden="true">
-                &ldquo;
-              </span>
-              <blockquote className="mt-2">
-                <p className="text-[clamp(20px,2.6vw,32px)] font-light italic leading-snug text-gelo">
-                  {visao.citacao}
-                </p>
-                <footer className="mt-6 border-t border-white/15 pt-4 text-sm uppercase tracking-[0.18em] text-nevoa">
-                  {visao.autor}
-                </footer>
-              </blockquote>
+              <h2 className="display text-[clamp(34px,4.6vw,64px)]">{dores.titulo}</h2>
+
+              <ul className="mt-7 space-y-4">
+                {dores.itens.map((item) => (
+                  <li key={item.texto} className="flex items-center gap-4">
+                    <Icone nome={item.icone} className="h-6 w-6 shrink-0 text-ouro" />
+                    <span className="text-[17px] leading-snug text-nevoa">
+                      {item.texto}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              <p className="display-forte mt-8 text-[clamp(22px,3vw,34px)]">
+                {dores.fecho}
+              </p>
             </div>
           </article>
 
-          {/* 3 — Motor */}
+          {/* 3 — Por que o Celta LT */}
           <article
             ref={(el) => {
               overlaysRef.current[2] = el;
@@ -790,23 +793,30 @@ export function CeltaScroll() {
             aria-hidden="true"
           >
             <div className="scrim" aria-hidden="true" />
-            <div className="relative mx-auto max-h-svh w-full max-w-[860px] overflow-y-auto px-[6%] pt-16 pb-24 md:pb-16">
-              <h2 className="display text-[clamp(36px,5vw,72px)]">{detalhesMotor.titulo}</h2>
-              <p className="mt-5 max-w-[58ch] text-[17px] leading-relaxed text-nevoa">
-                {detalhesMotor.corpo}
-              </p>
-              <ul className="mt-8 divide-y divide-white/10 border-y border-white/10">
-                {detalhesMotor.itens.map((item) => (
-                  <li key={item.icone + item.texto} className="flex items-center gap-4 py-4">
+            <div className="relative mx-auto max-h-svh w-full max-w-[1000px] overflow-y-auto px-[6%] pt-16 pb-24 md:pb-16">
+              <h2 className="display text-[clamp(34px,4.6vw,64px)]">
+                {beneficios.titulo}
+              </h2>
+
+              <div className="mt-7 grid gap-3 sm:grid-cols-2">
+                {beneficios.itens.map((item) => (
+                  <div key={item.titulo} className="vidro flex gap-4 p-4">
                     <Icone nome={item.icone} className="h-6 w-6 shrink-0 text-ouro" />
-                    <span className="text-[15px] text-nevoa">{item.texto}</span>
-                  </li>
+                    <div>
+                      <h3 className="text-[15px] font-semibold text-gelo">
+                        {item.titulo}
+                      </h3>
+                      <p className="mt-1 text-sm leading-relaxed text-nevoa">
+                        {item.texto}
+                      </p>
+                    </div>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
           </article>
 
-          {/* 4 — Diferenciais */}
+          {/* 4 — O preço */}
           <article
             ref={(el) => {
               overlaysRef.current[3] = el;
@@ -815,39 +825,37 @@ export function CeltaScroll() {
             aria-hidden="true"
           >
             <div className="scrim" aria-hidden="true" />
-            <div className="relative mx-auto max-h-svh w-full max-w-[1000px] overflow-y-auto px-[6%] pt-16 pb-24 md:pb-16">
+            <div className="relative mx-auto max-h-svh w-full max-w-[900px] overflow-y-auto px-[6%] pt-16 pb-24 md:pb-16">
               <h2 className="display text-[clamp(34px,4.6vw,64px)]">
-                O que ele resolve na prática
+                {precoSecao.titulo}
               </h2>
+              <p className="mt-5 max-w-[54ch] text-[17px] leading-relaxed text-nevoa">
+                {precoSecao.texto}
+              </p>
 
-              {/* versão compacta: cabe na tela do celular sem rolagem interna */}
-              <ul className="mt-7 space-y-4 sm:hidden">
-                {diferenciais.map((item) => (
-                  <li key={item.titulo} className="flex gap-3">
-                    <Icone nome={item.icone} className="mt-0.5 h-5 w-5 shrink-0 text-ouro" />
-                    <p className="text-sm leading-snug text-nevoa">
-                      <span className="font-semibold text-gelo">{item.titulo}. </span>
-                      {item.texto}
-                    </p>
-                  </li>
-                ))}
-              </ul>
-
-              <div className="mt-8 hidden gap-3 sm:grid sm:grid-cols-2">
-                {diferenciais.map((item) => (
-                  <div key={item.titulo} className="vidro flex gap-4 p-5">
-                    <Icone nome={item.icone} className="h-6 w-6 shrink-0 text-ouro" />
-                    <div>
-                      <h3 className="text-[15px] font-semibold text-gelo">{item.titulo}</h3>
-                      <p className="mt-1 text-sm leading-relaxed text-nevoa">{item.texto}</p>
-                    </div>
-                  </div>
-                ))}
+              <div className="vidro mt-7 p-5 md:p-6">
+                <p className="rotulo text-ouro">{rotulos.fipe}</p>
+                <p className="numerico mt-2 text-[clamp(30px,4vw,48px)] font-semibold leading-none text-gelo">
+                  {fipeTexto}
+                </p>
+                <p className="mt-2 text-xs text-grafite">
+                  Referência de {fipe.referenciaLabel} · código {fipe.codigo}
+                </p>
+                <p className="mt-4 text-[15px] text-nevoa">
+                  Valor deste carro:{" "}
+                  <span className="font-semibold text-gelo">
+                    {carro.preco ? formatarMoeda(carro.preco) : rotulos.consultar}
+                  </span>
+                </p>
               </div>
+
+              <a href="#preco" className="pill mt-6" tabIndex={-1}>
+                Ver o preço e a calculadora
+              </a>
             </div>
           </article>
 
-          {/* 5 — Estado do carro */}
+          {/* 5 — Compra sem susto */}
           <article
             ref={(el) => {
               overlaysRef.current[4] = el;
@@ -856,26 +864,26 @@ export function CeltaScroll() {
             aria-hidden="true"
           >
             <div className="scrim" aria-hidden="true" />
-            <div className="relative mx-auto max-h-svh w-full max-w-[860px] overflow-y-auto px-[6%] pt-16 pb-24 md:pb-16">
-              <h2 className="display text-[clamp(34px,4.6vw,64px)]">{estadoDoCarro.titulo}</h2>
-              <p className="mt-5 max-w-[58ch] text-[17px] leading-relaxed text-nevoa">
-                {estadoDoCarro.corpo}
+            <div className="relative mx-auto max-h-svh w-full max-w-[900px] overflow-y-auto px-[6%] pt-16 pb-24 md:pb-16">
+              <h2 className="display text-[clamp(34px,4.6vw,64px)]">
+                {compraSemSusto.titulo}
+              </h2>
+              <p className="mt-5 max-w-[54ch] text-[17px] leading-relaxed text-nevoa">
+                {compraSemSusto.frase}
               </p>
-              <dl className="mt-7 space-y-2 sm:mt-8 sm:space-y-3">
-                {estadoDoCarro.fatos.map((fato) => (
-                  <div
-                    key={fato.chave}
-                    className="flex flex-col gap-0.5 border-b border-white/10 pb-2 sm:flex-row sm:items-baseline sm:gap-3 sm:border-0 sm:pb-0"
-                  >
-                    <dt className="text-sm text-grafite">{fato.chave}</dt>
-                    <span
-                      aria-hidden="true"
-                      className="hidden flex-1 border-b border-dotted border-white/25 sm:block"
-                    />
-                    <dd className="text-[15px] text-gelo">{fato.valor}</dd>
-                  </div>
+
+              <ul className="mt-7 grid gap-2 sm:grid-cols-2">
+                {compraSemSusto.checklist.itens.slice(0, 6).map((item) => (
+                  <li key={item} className="flex items-center gap-3 text-sm text-nevoa">
+                    <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-ouro" aria-hidden="true" />
+                    {item}
+                  </li>
                 ))}
-              </dl>
+              </ul>
+
+              <a href="#compra" className="pill mt-7" tabIndex={-1}>
+                Ver o checklist completo
+              </a>
             </div>
           </article>
 
@@ -895,27 +903,47 @@ export function CeltaScroll() {
                   "radial-gradient(ellipse 70% 58% at 50% 50%, rgba(3,3,4,0.9), rgba(3,3,4,0.62) 60%, rgba(3,3,4,0.1) 100%)",
               }}
             />
-            <div className="relative mx-auto max-h-svh w-full max-w-[820px] overflow-y-auto px-[6%] pt-16 pb-24 md:pb-16 text-center">
-              <h2 className="display text-[clamp(44px,7vw,110px)]">{chamadaFinal.titulo}</h2>
+            <div className="relative mx-auto max-h-svh w-full max-w-[820px] overflow-y-auto px-[6%] pt-16 pb-24 text-center md:pb-16">
+              <h2 className="display text-[clamp(44px,7vw,110px)]">
+                {chamadaFinal.titulo}
+              </h2>
               <p className="mx-auto mt-5 max-w-[52ch] text-[17px] leading-relaxed text-nevoa">
-                {chamadaFinal.subtitulo}
+                {chamadaFinal.texto}
               </p>
               <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-                <BotaoPrincipal />
+                <a href="#contato" className="pill pill-ouro" tabIndex={-1}>
+                  {chamadaFinal.principal}
+                </a>
+                {whatsappLinks.testDrive && (
+                  <a
+                    href={whatsappLinks.testDrive}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="pill"
+                    tabIndex={-1}
+                  >
+                    {rotulos.falarWhatsapp}
+                  </a>
+                )}
                 <button
                   type="button"
                   onClick={() => irParaSecao(0)}
-                  className="inline-flex min-h-[52px] items-center justify-center rounded-full border border-white/25 px-7 text-[15px] font-medium text-gelo transition-colors duration-200 hover:bg-white/10 active:scale-[0.98]"
+                  className="inline-flex min-h-[52px] items-center justify-center rounded-full px-5 text-[13px] font-medium text-nevoa transition-colors duration-200 hover:text-ouro"
+                  tabIndex={-1}
                 >
                   {chamadaFinal.secundario}
                 </button>
               </div>
               <div className="vidro-escuro mt-9 inline-flex flex-col gap-1 px-6 py-5 text-left">
                 <span className="text-[11px] uppercase tracking-[0.2em] text-grafite">
-                  Contato direto com o dono
+                  {rotulos.contatoDono}
                 </span>
-                <span className="numerico text-[15px] text-gelo">{anuncio.telefone}</span>
-                <span className="text-sm text-nevoa">{anuncio.cidade}</span>
+                <span className="numerico text-[15px] text-gelo">
+                  {empresa.nome} · {anuncio.telefone ?? anuncio.whatsappVisivel}
+                </span>
+                <span className="text-sm text-nevoa">
+                  {anuncio.cidade ?? "Atendimento com horário marcado"}
+                </span>
               </div>
             </div>
           </article>
