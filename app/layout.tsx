@@ -16,13 +16,16 @@ const archivo = Archivo({
 });
 
 export const metadata: Metadata = {
-  title: "Celta 2012 à venda — 1.0 Flex, 4 portas",
+  title: "Celta 2.0 | Chevrolet Celta LT 1.0 Flex 2012 preto — Sanderscarr",
   description:
-    "Celta 2012 LT 1.0 Flex, 4 portas, com documentação em dia. Anúncio particular: fotos, estado do carro, valor e contato direto no WhatsApp.",
+    "Celta LT 1.0 Flex 2012 preto, 4 portas, com 15 fotos reais, tabela FIPE, calculadora de gasto e checklist de test drive. Agende seu test drive com a Sanderscarr.",
+  applicationName: "Celta 2.0",
+  authors: [{ name: "Sanderscarr" }],
+  robots: { index: true, follow: true },
   openGraph: {
-    title: "Celta 2012 à venda — 1.0 Flex, 4 portas",
+    title: "Celta 2.0 | Celta LT 1.0 Flex 2012 preto — Sanderscarr",
     description:
-      "Compacto econômico e confiável, pronto para o dia a dia. Veja o estado, os detalhes e fale direto com o dono.",
+      "Compacto, flex e fácil de manter. Veja as 15 fotos, compare com a FIPE e agende um test drive sem compromisso.",
     locale: "pt_BR",
     type: "website",
   },

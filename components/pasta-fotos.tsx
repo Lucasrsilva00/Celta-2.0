@@ -300,14 +300,16 @@ export function PastaFotos() {
                     </div>
 
                     <div className="mx-auto mt-5 flex max-w-[760px] flex-wrap items-start justify-between gap-3">
-                      <div>
+                      <div className="pasta-legenda">
                         <p className="text-[11px] uppercase tracking-[0.18em] text-gelo">
                           {atual.rotulo}
                           <span className="text-grafite"> · {atual.regiao}</span>
                         </p>
-                        <p className="mt-1 max-w-[52ch] text-[13px] leading-snug text-nevoa">
-                          {atual.nota}
-                        </p>
+                        {atual.nota && (
+                          <p className="mt-1 max-w-[52ch] text-[13px] leading-snug text-nevoa">
+                            {atual.nota}
+                          </p>
+                        )}
                       </div>
                       <p
                         aria-live="polite"

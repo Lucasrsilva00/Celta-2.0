@@ -38,7 +38,7 @@ export function BannerVideo() {
         >
           <div>
             <p className="rotulo">
-              {rotulos.videoPromocional} · {videoPromocional.duracao} ·{" "}
+              {videoPromocional.rotulo} · {videoPromocional.duracao} ·{" "}
               {rotulos.comSom.toLowerCase()}
             </p>
             <h2
@@ -55,6 +55,9 @@ export function BannerVideo() {
 
         <figure data-revelar className="mt-10 md:mt-14">
           <div className="banner-moldura aspect-video">
+            <span className="absolute left-4 top-4 z-10 rounded-full border border-white/20 bg-preto/75 px-3 py-1.5 text-[10px] uppercase tracking-[0.16em] text-nevoa backdrop-blur-sm md:left-6 md:top-6">
+              {videoPromocional.badge}
+            </span>
             <video
               ref={videoRef}
               className="absolute inset-0 h-full w-full object-cover"
@@ -67,7 +70,7 @@ export function BannerVideo() {
               <source src={videoPromocional.arquivo} type="video/mp4" />
               <track
                 kind="captions"
-                src="/videos/celta-promocional.vtt"
+                src={videoPromocional.legendas}
                 srcLang="pt-BR"
                 label="Descrição do vídeo"
               />
@@ -143,12 +146,7 @@ export function BannerVideo() {
               </p>
             </div>
 
-            <a
-              href={anuncio.whatsapp}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="pill shrink-0"
-            >
+            <a href="#contato" className="pill shrink-0">
               {videoPromocional.botao}
               <svg
                 viewBox="0 0 24 24"
@@ -164,7 +162,6 @@ export function BannerVideo() {
                 <path d="M5 12h13" />
                 <path d="M12.5 6l6 6-6 6" />
               </svg>
-              <span className="sr-only"> — abre conversa no WhatsApp</span>
             </a>
           </figcaption>
 

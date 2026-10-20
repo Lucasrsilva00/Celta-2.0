@@ -4,11 +4,26 @@
     "marca": "CELTA"
   },
   "navegacao": [
-    { "rotulo": "Por que o Celta", "href": "#beneficios" },
-    { "rotulo": "Fotos", "href": "#fotos" },
-    { "rotulo": "Preço", "href": "#preco" },
-    { "rotulo": "Vídeo", "href": "#video" },
-    { "rotulo": "Contato", "href": "#contato" }
+    {
+      "rotulo": "Por que o Celta",
+      "href": "#beneficios"
+    },
+    {
+      "rotulo": "Fotos",
+      "href": "#fotos"
+    },
+    {
+      "rotulo": "Preço",
+      "href": "#preco"
+    },
+    {
+      "rotulo": "Vídeo",
+      "href": "#video"
+    },
+    {
+      "rotulo": "Contato",
+      "href": "#contato"
+    }
   ],
   "rotulos": {
     "consultar": "Consultar",
@@ -54,10 +69,22 @@
     "rotulo": "Identificação",
     "titulo": "Você já passou por isso?",
     "itens": [
-      { "icone": "compacto", "texto": "Rodou o bairro inteiro atrás de vaga." },
-      { "icone": "economia", "texto": "Olhou a bomba de combustível e doeu." },
-      { "icone": "escudo", "texto": "Teve medo de comprar um usado e se arrepender." },
-      { "icone": "dia", "texto": "Quis um carro simples, sem complicação." }
+      {
+        "icone": "compacto",
+        "texto": "Rodou o bairro inteiro atrás de vaga."
+      },
+      {
+        "icone": "economia",
+        "texto": "Olhou a bomba de combustível e doeu."
+      },
+      {
+        "icone": "escudo",
+        "texto": "Teve medo de comprar um usado e se arrepender."
+      },
+      {
+        "icone": "dia",
+        "texto": "Quis um carro simples, sem complicação."
+      }
     ],
     "fecho": "Então vem conhecer este Celta."
   },
@@ -229,7 +256,10 @@
       "descricao": "Traseira, painel e motor: os três lugares onde um carro usado conta a verdade.",
       "chamada": "Gostou do que viu? Venha ver ao vivo.",
       "destaque": "04-vista-traseira.webp",
-      "laterais": ["09-painel.webp", "11-motor.webp"]
+      "laterais": [
+        "09-painel.webp",
+        "11-motor.webp"
+      ]
     },
     "pasta": {
       "rotulo": "Todas as partes",
@@ -240,7 +270,13 @@
       "capaTexto": "Cada parte em uma foto grande, sem mural de fotos. Escolha por onde começar.",
       "abrir": "Abrir a pasta de fotos",
       "fechar": "Fechar a pasta",
-      "abas": ["Todas", "Exterior", "Interior", "Motor", "Detalhes"]
+      "abas": [
+        "Todas",
+        "Exterior",
+        "Interior",
+        "Motor",
+        "Detalhes"
+      ]
     }
   },
   "preco": {
@@ -260,14 +296,18 @@
       "etanol": "Preço do etanol (R$)",
       "cidade": "% de cidade",
       "resultado": "Com gasolina: {gasolina} por mês. Com etanol: {etanol}. Hoje compensa abastecer com {combustivel}.",
-      "aviso": "Estimativa com dados de ficha. O consumo real varia."
-    }
+      "aviso": "Estimativa com dados de ficha. O consumo real varia.",
+      "incompleto": "Informe quilometragem e preços para ver a estimativa."
+    },
+    "semPrecoTexto": "O valor do anúncio ainda não foi definido. Fale direto com a Sanderscarr para saber o preço atual e negociar sem pressa.",
+    "comPrecoTexto": "Valor definido pela Sanderscarr. Confirme as condições e a documentação na visita."
   },
   "video": {
     "rotulo": "Em movimento",
     "titulo": "Veja o Celta em movimento.",
     "subtitulo": "Dez segundos no showroom, com áudio. Mesmo carro das fotos, do jeito que ele é de perto.",
     "legendaTitulo": "Vídeo de showroom",
+    "badge": "Vídeo ilustrativo · IA",
     "aviso": "Vídeo ilustrativo criado com inteligência artificial. O carro à venda é o das fotos reais.",
     "duracao": "10 s",
     "botao": "Agendar test drive",
@@ -280,11 +320,31 @@
     "titulo": "Compra sem susto.",
     "frase": "Quem vende um carro bom não tem medo de checagem. Leve o nosso checklist.",
     "itens": [
-      { "id": "documentacao", "texto": "Documentação em dia.", "confirmado": false },
-      { "id": "laudo", "texto": "Laudo cautelar disponível.", "confirmado": false },
-      { "id": "test-drive", "texto": "Test drive sem compromisso.", "confirmado": false },
-      { "id": "troca", "texto": "Aceitamos seu carro na troca.", "confirmado": false },
-      { "id": "financiamento", "texto": "Financiamento com simulação.", "confirmado": false }
+      {
+        "id": "documentacao",
+        "texto": "Documentação em dia.",
+        "confirmado": false
+      },
+      {
+        "id": "laudo",
+        "texto": "Laudo cautelar disponível.",
+        "confirmado": false
+      },
+      {
+        "id": "test-drive",
+        "texto": "Test drive sem compromisso.",
+        "confirmado": false
+      },
+      {
+        "id": "troca",
+        "texto": "Aceitamos seu carro na troca.",
+        "confirmado": false
+      },
+      {
+        "id": "financiamento",
+        "texto": "Financiamento com simulação.",
+        "confirmado": false
+      }
     ],
     "checklist": {
       "titulo": "Checklist de test drive",
@@ -302,19 +362,37 @@
         "Suspensão: ruídos e folgas"
       ],
       "baixar": "Baixar checklist",
-      "arquivo": "/checklist-test-drive.txt"
-    }
+      "arquivo": "/checklist-test-drive.txt",
+      "verItens": "Ver os 10 itens"
+    },
+    "combinacoesTitulo": "Combinações direto com o vendedor",
+    "observacao": "Documentação, laudo, troca e financiamento são combinados direto com a Sanderscarr e podem ser conferidos na visita."
   },
   "perguntas": {
     "rotulo": "Objeções",
     "titulo": "Perguntas",
     "descricao": "O que todo mundo pergunta antes de marcar um test drive.",
     "itens": [
-      { "pergunta": "Posso fazer test drive?", "resposta": null },
-      { "pergunta": "Aceita troca?", "resposta": null },
-      { "pergunta": "Tem financiamento?", "resposta": null },
-      { "pergunta": "Qual a quilometragem?", "resposta": null },
-      { "pergunta": "O preço negocia?", "resposta": null }
+      {
+        "pergunta": "Posso fazer test drive?",
+        "resposta": null
+      },
+      {
+        "pergunta": "Aceita troca?",
+        "resposta": null
+      },
+      {
+        "pergunta": "Tem financiamento?",
+        "resposta": null
+      },
+      {
+        "pergunta": "Qual a quilometragem?",
+        "resposta": null
+      },
+      {
+        "pergunta": "O preço negocia?",
+        "resposta": null
+      }
     ],
     "fallback": "Ainda não confirmado. Pergunte direto para a Sanderscarr.",
     "link": "Perguntar no WhatsApp"
@@ -329,27 +407,54 @@
         "id": "uso",
         "pergunta": "Onde você dirige?",
         "opcoes": [
-          { "rotulo": "Na cidade, quase sempre", "pontos": 2 },
-          { "rotulo": "Um pouco de tudo", "pontos": 2 },
-          { "rotulo": "Mais estrada", "pontos": 1 }
+          {
+            "rotulo": "Na cidade, quase sempre",
+            "pontos": 2
+          },
+          {
+            "rotulo": "Um pouco de tudo",
+            "pontos": 2
+          },
+          {
+            "rotulo": "Mais estrada",
+            "pontos": 1
+          }
         ]
       },
       {
         "id": "pessoas",
         "pergunta": "Quantas pessoas andam com você?",
         "opcoes": [
-          { "rotulo": "1 a 2", "pontos": 2 },
-          { "rotulo": "3 a 4", "pontos": 2 },
-          { "rotulo": "5 ou mais", "pontos": 1 }
+          {
+            "rotulo": "1 a 2",
+            "pontos": 2
+          },
+          {
+            "rotulo": "3 a 4",
+            "pontos": 2
+          },
+          {
+            "rotulo": "5 ou mais",
+            "pontos": 1
+          }
         ]
       },
       {
         "id": "cambio",
         "pergunta": "Câmbio manual está tudo bem?",
         "opcoes": [
-          { "rotulo": "Sem problema", "pontos": 2 },
-          { "rotulo": "Nunca dirigi manual", "pontos": 1 },
-          { "rotulo": "Prefiro automático", "pontos": 0 }
+          {
+            "rotulo": "Sem problema",
+            "pontos": 2
+          },
+          {
+            "rotulo": "Nunca dirigi manual",
+            "pontos": 1
+          },
+          {
+            "rotulo": "Prefiro automático",
+            "pontos": 0
+          }
         ]
       }
     ],
@@ -369,7 +474,8 @@
         "titulo": "Vale testar antes",
         "texto": "Talvez não seja o encaixe perfeito. Um test drive sem compromisso resolve a dúvida."
       }
-    ]
+    ],
+    "refazer": "Refazer"
   },
   "chamadaFinal": {
     "rotulo": "Contato direto com a Sanderscarr",
@@ -385,17 +491,25 @@
       "enviar": "Enviar contato",
       "nota": "Ao enviar, abrimos o WhatsApp com sua mensagem. Nada é armazenado neste site.",
       "sucesso": "Abrimos o WhatsApp com sua mensagem. Se a janela não abrir, fale direto com a Sanderscarr.",
-      "erro": "Não conseguimos abrir o WhatsApp agora. Tente de novo ou chame direto no número abaixo."
+      "erro": "Não conseguimos abrir o WhatsApp agora. Tente de novo ou chame direto no número abaixo.",
+      "erroNome": "Informe seu nome.",
+      "erroTelefone": "Informe o telefone com DDD."
     },
     "agendador": {
       "titulo": "Prefere escolher dia e horário?",
       "texto": "Monte a mensagem com o dia e o período que funcionam para você.",
       "dia": "Dia",
       "periodo": "Período",
-      "periodos": ["Manhã", "Tarde"],
+      "periodos": [
+        "Manhã",
+        "Tarde"
+      ],
       "botao": "Montar mensagem de test drive",
-      "mensagem": "Quero test drive no dia {dia}, período {periodo}."
-    }
+      "mensagem": "Quero test drive no dia {dia}, período {periodo}.",
+      "erroDia": "Escolha o dia da visita.",
+      "erroWhatsapp": "WhatsApp não configurado. Fale pelo telefone do rodapé."
+    },
+    "semWhatsapp": "WhatsApp ainda não configurado. Fale com a Sanderscarr pelo telefone do rodapé."
   },
   "whatsapp": {
     "geral": "Olá! Vi o Celta LT 2012 preto no site e quero mais informações.",
@@ -411,68 +525,9 @@
     "erro404": "Esse caminho não leva a lugar nenhum. Volte para a estrada."
   },
   "rodape": {
-    "aviso": "Valores e condições sujeitos a negociação presencial. Imagens, vídeo e animação são ilustrativos e gerados com IA: confira o carro de perto antes de decidir.",
+    "aviso": "Valores e condições sujeitos a negociação presencial. A animação e o vídeo são ilustrativos e gerados com IA; as fotos são do carro à venda. Confira o carro de perto antes de decidir.",
     "horarioFallback": "Atendimento com horário marcado",
     "enderecoFallback": "Endereço a confirmar",
     "creditos": "Celta 2.0 · anúncio da Sanderscarr"
-  },
-  "legado": {
-    "stats": [
-      { "valor": "1.0", "rotulo": "Motor flex" },
-      { "valor": "70", "rotulo": "Cavalos" },
-      { "valor": "4", "rotulo": "Portas" },
-      { "valor": "13", "rotulo": "km/l na estrada" }
-    ],
-    "visao": {
-      "citacao": "Não é o carro dos sonhos. É o carro que funciona todo dia.",
-      "autor": "Quem já teve um Celta"
-    },
-    "detalhesMotor": {
-      "titulo": "1.0 VHC-E: o motor que qualquer oficina conhece",
-      "corpo": "Sem eletrônica exótica e sem peça difícil.",
-      "itens": [
-        { "icone": "motor", "texto": "Flex de verdade: etanol, gasolina ou a mistura dos dois." }
-      ]
-    },
-    "diferenciaisTitulo": "O que ele resolve na prática",
-    "diferenciais": [
-      { "icone": "economia", "titulo": "Econômico", "texto": "Média alta por litro." }
-    ],
-    "estadoDoCarro": {
-      "titulo": "Como o carro está hoje",
-      "corpo": "Anúncio de particular, sem intermediário.",
-      "fatos": [
-        { "chave": "Versão", "valor": "LT 1.0 Flex, 4 portas" }
-      ]
-    },
-    "sobreCarro": {
-      "rotulo": "Sobre o carro",
-      "titulo": "Um compacto que não dá trabalho",
-      "texto": "Celta LT 1.0 Flex, 4 portas.",
-      "numeros": [
-        { "valor": "4", "rotulo": "Portas" }
-      ],
-      "botao": "Falar com o dono"
-    },
-    "painelDestaque": {
-      "rotulo": "No showroom",
-      "titulo": "O Celta 2012 em detalhe",
-      "descricao": "Três ângulos do mesmo carro.",
-      "palavra": "CELTA",
-      "faixa": [
-        { "chave": "Motor", "valor": "1.0 flex" }
-      ]
-    },
-    "fatosDestaque": {
-      "rotulo": "O que já está resolvido",
-      "titulo": "Fatos que pesam na compra",
-      "descricao": "O que costuma virar surpresa depois da compra.",
-      "itens": [
-        { "etiqueta": "Revisão", "titulo": "Óleo e filtros trocados", "texto": "Revisão feita recentemente." }
-      ]
-    },
-    "bannerContato": {
-      "rotulo": "Contato direto com o dono"
-    }
   }
 }

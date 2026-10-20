@@ -164,11 +164,6 @@ export const pastaFotos = {
   abas: conteudo.fotos.pasta.abas as AbaPasta[],
 };
 
-export const fatosDestaque = {
-  ...conteudo.legado.fatosDestaque,
-  itens: conteudo.legado.fatosDestaque.itens,
-};
-
 export const bannerContato = {
   rotulo: chamadaFinal.rotulo,
   foto: conteudo.video.capa,
@@ -229,27 +224,3 @@ export const barraNumeros: NumeroBarra[] = [
 export const centroSecoes = [0.06, 0.21, 0.365, 0.525, 0.685, 0.885];
 
 export const rotuloSecoes = apresentacao.rotulos;
-
-/* ---------------------------------------------------------------------------
-   Compatibilidade temporária (removida na etapa 2)
-   --------------------------------------------------------------------------- */
-export const stats = conteudo.legado.stats;
-export const visao = conteudo.legado.visao;
-export const detalhesMotor = conteudo.legado.detalhesMotor;
-export const diferenciaisTitulo = conteudo.legado.diferenciaisTitulo;
-export const diferenciais = conteudo.legado.diferenciais;
-export const estadoDoCarro = conteudo.legado.estadoDoCarro;
-
-export const sobreCarro = {
-  ...conteudo.legado.sobreCarro,
-  foto: foto("01-vista-frontal.webp"),
-};
-
-export const painelDestaque = {
-  ...conteudo.legado.painelDestaque,
-  fotos: [
-    foto("02-vista-3-4-diagonal.webp"),
-    foto("03-vista-lateral-esquerda.webp"),
-    foto("05-vista-lateral-direita.webp"),
-  ],
-};

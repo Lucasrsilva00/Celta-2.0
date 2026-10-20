@@ -1,25 +1,34 @@
 import { BannerCta } from "@/components/banner-cta";
 import { BannerVideo } from "@/components/banner-video";
 import { BarraNumeros } from "@/components/barra-numeros";
+import { Beneficios } from "@/components/beneficios";
 import { CeltaScroll } from "@/components/celta-scroll";
-import { FatosCards } from "@/components/fatos-cards";
+import { CompraSemSusto } from "@/components/compra-sem-susto";
+import { Dores } from "@/components/dores";
 import { GaleriaAssimetrica } from "@/components/galeria-assimetrica";
 import { NavTopo } from "@/components/nav-topo";
-import { PainelDestaque } from "@/components/painel-destaque";
 import { PastaFotos } from "@/components/pasta-fotos";
+import { Perguntas } from "@/components/perguntas";
+import { PrecoFipe } from "@/components/preco-fipe";
+import { QuizCompatibilidade } from "@/components/quiz-compatibilidade";
 import { Rodape } from "@/components/rodape";
-import { SobreCarro } from "@/components/sobre-carro";
 import {
   anuncio,
+  beneficios,
+  carro,
   chamadaFinal,
-  detalhesMotor,
-  diferenciais,
-  diferenciaisTitulo,
-  estadoDoCarro,
+  compraSemSusto,
+  dores,
+  empresa,
+  fipe,
+  fipeTexto,
+  formatarMoeda,
+  hero,
+  perguntas,
   precoTexto,
+  quiz,
   rotulos,
-  stats,
-  visao,
+  videoPromocional,
 } from "@/lib/conteudo";
 
 export default function Home() {
@@ -57,6 +66,9 @@ export default function Home() {
       <NavTopo />
 
       <main id="conteudo" tabIndex={-1}>
+        <h1 className="sr-only">
+          {hero.titulo} {anuncio.modelo} {anuncio.ano}, {anuncio.versao}.
+        </h1>
         <CeltaScroll />
 
         {/* Narrativa completa para leitores de tela: os overlays visuais são cronometrados
@@ -66,77 +78,114 @@ export default function Home() {
             {anuncio.modelo} {anuncio.ano} à venda — resumo do anúncio
           </h2>
           <p>
-            {anuncio.versao}, {anuncio.cor.toLowerCase()}.{" "}
-            {anuncio.preco ? `Valor: ${anuncio.preco}.` : rotulos.valorAConsultar + "."}{" "}
-            {anuncio.km}. {anuncio.documento}.
+            {anuncio.versao}, {anuncio.cor.toLowerCase()}, {anuncio.portas}.
+            Quilometragem: {anuncio.km}. Valor:{" "}
+            {carro.preco ? formatarMoeda(carro.preco) : rotulos.consultar}.
           </p>
+
+          <h3>{beneficios.titulo}</h3>
           <ul>
-            {stats.map((item) => (
-              <li key={item.rotulo}>
-                {item.rotulo}: {item.valor}
+            {beneficios.itens.map((item) => (
+              <li key={item.titulo}>
+                {item.titulo} {item.texto}
               </li>
             ))}
           </ul>
-          <h3>Por que esse carro</h3>
-          <p>{visao.citacao}</p>
-          <h3>{detalhesMotor.titulo}</h3>
-          <p>{detalhesMotor.corpo}</p>
+
+          <h3>{dores.titulo}</h3>
           <ul>
-            {detalhesMotor.itens.map((item) => (
+            {dores.itens.map((item) => (
               <li key={item.texto}>{item.texto}</li>
             ))}
           </ul>
-          <h3>{diferenciaisTitulo}</h3>
+
+          <h3>Medidas do carro</h3>
           <ul>
-            {diferenciais.map((item) => (
-              <li key={item.titulo}>
-                {item.titulo}: {item.texto}
+            <li>3,79 metros de comprimento</li>
+            <li>5 lugares</li>
+            <li>260 litros de porta-malas</li>
+            <li>691 quilômetros de autonomia na estrada com gasolina</li>
+          </ul>
+
+          <h3>Fotos</h3>
+          <p>
+            Quinze fotos do carro, por fora e por dentro, disponíveis na pasta de
+            fotos. As fotos são do carro à venda; a animação e o vídeo são
+            ilustrativos e gerados com inteligência artificial.
+          </p>
+
+          <h3>Preço e FIPE</h3>
+          <p>
+            Tabela FIPE de referência: {fipeTexto}, {fipe.referenciaLabel}, código{" "}
+            {fipe.codigo}. Valor deste carro: {precoTexto}. A FIPE é referência de
+            mercado, não garantia de preço.
+          </p>
+
+          <h3>{videoPromocional.titulo}</h3>
+          <p>{videoPromocional.aviso}</p>
+
+          <h3>{compraSemSusto.titulo}</h3>
+          <p>{compraSemSusto.frase}</p>
+          <ul>
+            {compraSemSusto.checklist.itens.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+
+          <h3>{quiz.titulo}</h3>
+          {quiz.perguntas.map((pergunta) => (
+            <div key={pergunta.id}>
+              <p>{pergunta.pergunta}</p>
+              <ul>
+                {pergunta.opcoes.map((opcao) => (
+                  <li key={opcao.rotulo}>{opcao.rotulo}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+
+          <h3>{perguntas.titulo}</h3>
+          <ul>
+            {perguntas.itens.map((item) => (
+              <li key={item.pergunta}>
+                {item.pergunta} {item.resposta ?? rotulos.consultar}
               </li>
             ))}
           </ul>
-          <h3>{estadoDoCarro.titulo}</h3>
-          <p>{estadoDoCarro.corpo}</p>
-          <dl>
-            {estadoDoCarro.fatos.map((fato) => (
-              <div key={fato.chave}>
-                <dt>{fato.chave}</dt>
-                <dd>{fato.valor}</dd>
-              </div>
-            ))}
-          </dl>
+
           <h3>{chamadaFinal.titulo}</h3>
-          <p>{chamadaFinal.subtitulo}</p>
+          <p>{chamadaFinal.texto}</p>
           <p>
-            Contato direto com o vendedor: {anuncio.telefone ?? anuncio.whatsappVisivel}.
+            Contato direto com a {empresa.nome}: {anuncio.telefone ?? anuncio.whatsappVisivel}.
           </p>
         </section>
 
-        {/* Barra de números e o restante da página na linguagem do template */}
         <BarraNumeros />
-        <SobreCarro />
-        <PainelDestaque />
+        <Dores />
+        <Beneficios />
         <GaleriaAssimetrica />
         <PastaFotos />
+        <PrecoFipe />
         <BannerVideo />
-        <FatosCards />
+        <CompraSemSusto />
+        <QuizCompatibilidade />
+        <Perguntas />
         <BannerCta />
       </main>
 
-      {/* Barra de contato fixa no celular */}
+      {/* Barra fixa no celular: preço + um único pedido */}
       <div className="fixed inset-x-0 bottom-0 z-[60] flex items-center justify-between gap-3 border-t border-white/10 bg-preto/90 px-4 py-3 backdrop-blur-md md:hidden">
         <div>
           <p className="numerico text-[17px] font-semibold text-gelo">{precoTexto}</p>
           <p className="text-[11px] uppercase tracking-[0.16em] text-grafite">
-            {anuncio.ano} · {anuncio.km}
+            {anuncio.ano} · {anuncio.versao}
           </p>
         </div>
         <a
-          href={anuncio.whatsapp}
-          target="_blank"
-          rel="noopener noreferrer"
+          href="#contato"
           className="inline-flex min-h-[44px] items-center justify-center rounded-full bg-gelo px-5 text-sm font-semibold text-preto transition-colors duration-200 hover:bg-ouro active:scale-[0.98]"
         >
-          {chamadaFinal.principal}
+          {rotulos.agendar}
         </a>
       </div>
 
