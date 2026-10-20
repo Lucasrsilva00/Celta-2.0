@@ -28,6 +28,21 @@ export const metadata: Metadata = {
       "Compacto, flex e fácil de manter. Veja as 15 fotos, compare com a FIPE e agende um test drive sem compromisso.",
     locale: "pt_BR",
     type: "website",
+    url: "https://celta-2-0.netlify.app",
+    images: [
+      {
+        url: "https://celta-2-0.netlify.app/videos/celta-promocional-capa.webp",
+        width: 1280,
+        height: 720,
+        alt: "Chevrolet Celta LT 1.0 Flex 2012 preto — capa do vídeo do anúncio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Celta 2.0 | Celta LT 1.0 Flex 2012 preto — Sanderscarr",
+    description:
+      "Compacto, flex e fácil de manter. Veja as 15 fotos, compare com a FIPE e agende um test drive sem compromisso.",
   },
 };
 
