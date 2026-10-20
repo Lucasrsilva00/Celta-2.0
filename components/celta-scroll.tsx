@@ -222,6 +222,14 @@ export function CeltaScroll() {
     let topo = 0;
     let alturaSecao = 0;
     let alturaJanela = 0;
+    let veu: CanvasGradient | null = null;
+    let saidaAnterior = -1;
+    let vazadoAnterior = -1;
+    let brutoAnterior = -1;
+    let tintAnterior = -1;
+
+    /* pausa o trabalho pesado quando a apresentação sai da viewport */
+    let emCena = true;
 
     const quadros: Array<ImageBitmap | HTMLImageElement | undefined> = new Array(
       TOTAL_QUADROS,
@@ -248,6 +256,14 @@ export function CeltaScroll() {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       larguraCss = largura;
       alturaCss = altura;
+      /* véu criado uma vez por redimensionamento, não por quadro desenhado */
+      veu = ctx.createLinearGradient(0, alturaCss * 0.6, 0, alturaCss);
+      if (veu) {
+        veu.addColorStop(0, "rgba(3, 3, 4, 0)");
+        veu.addColorStop(0.5, "rgba(3, 3, 4, 0.45)");
+        veu.addColorStop(0.82, "rgba(3, 3, 4, 0.85)");
+        veu.addColorStop(1, "rgba(3, 3, 4, 1)");
+      }
       ultimoIndice = -1;
       desenhar(Math.round(quadroAtual));
     };
@@ -269,13 +285,7 @@ export function CeltaScroll() {
         largura,
         altura,
       );
-      // véu inferior: apaga a faixa de legenda/marca d'água gravada nos quadros
-      const veu = ctx.createLinearGradient(0, alturaCss * 0.6, 0, alturaCss);
-      veu.addColorStop(0, "rgba(3, 3, 4, 0)");
-      veu.addColorStop(0.5, "rgba(3, 3, 4, 0.45)");
-      veu.addColorStop(0.82, "rgba(3, 3, 4, 0.85)");
-      veu.addColorStop(1, "rgba(3, 3, 4, 1)");
-      ctx.fillStyle = veu;
+      ctx.fillStyle = veu ?? "rgba(3, 3, 4, 1)";
       ctx.fillRect(0, alturaCss * 0.6, larguraCss, alturaCss * 0.4);
     };
 
@@ -353,6 +363,13 @@ export function CeltaScroll() {
     };
 
     /* ------------------------------ overlays ----------------------------- */
+    /* valores já escritos: só atualiza o DOM quando o valor muda de fato */
+    const NAO_ESCRITO = -1;
+    const escrito = overlaysRef.current.map(() => ({
+      suave: NAO_ESCRITO,
+      filtro: "",
+    }));
+
     const atualizarOverlays = (progresso: number) => {
       let maiorVisibilidade = 0;
 
@@ -368,10 +385,22 @@ export function CeltaScroll() {
         const suave = visibilidade * visibilidade * (3 - 2 * visibilidade);
         maiorVisibilidade = Math.max(maiorVisibilidade, suave);
 
-        el.style.opacity = suave.toFixed(3);
-        el.style.transform = `translateX(${(-20 * (1 - suave)).toFixed(1)}px)`;
-        el.style.filter =
-          suave > 0.995 ? "none" : `blur(${(6 * (1 - suave)).toFixed(2)}px)`;
+        // quantizada em 60 degraus: reescreve apenas ao cruzar um degrau
+        const degrau = Math.round(suave * 60) / 60;
+        const cache = escrito[indice];
+        if (degrau !== cache.suave) {
+          cache.suave = degrau;
+          el.style.opacity = degrau.toFixed(3);
+          el.style.transform = `translateX(${(-20 * (1 - degrau)).toFixed(1)}px)`;
+          const filtro =
+            degrau > 0.985 || degrau < 0.015
+              ? "none"
+              : `blur(${(2.5 * (1 - degrau)).toFixed(1)}px)`;
+          if (filtro !== cache.filtro) {
+            cache.filtro = filtro;
+            el.style.filter = filtro;
+          }
+        }
 
         const ativoAgora = suave > 0.5;
         if (el.dataset.ativo !== String(ativoAgora)) {
@@ -381,7 +410,13 @@ export function CeltaScroll() {
       });
 
       const tint = tintRef.current;
-      if (tint) tint.style.opacity = (0.15 + 0.55 * (1 - maiorVisibilidade)).toFixed(2);
+      if (tint) {
+        const opacidadeTint = Math.round((0.15 + 0.55 * (1 - maiorVisibilidade)) * 100) / 100;
+        if (opacidadeTint !== tintAnterior) {
+          tintAnterior = opacidadeTint;
+          tint.style.opacity = opacidadeTint.toFixed(2);
+        }
+      }
     };
 
     /* ------------------------------- loop -------------------------------- */
@@ -394,6 +429,12 @@ export function CeltaScroll() {
     let anelY = 0;
 
     const laco = () => {
+      if (!emCena) {
+        // fora da viewport: nenhum trabalho, só o próprio batimento do relógio
+        animacao = requestAnimationFrame(laco);
+        return;
+      }
+
       const bruto = progressoBruto();
       const efetivo = remap[Math.round(bruto * (RESOLUCAO_LUT - 1))] ?? bruto;
 
@@ -422,7 +463,8 @@ export function CeltaScroll() {
         setAtivo(melhor);
       }
 
-      if (barraMobileRef.current) {
+      if (barraMobileRef.current && bruto !== brutoAnterior) {
+        brutoAnterior = bruto;
         barraMobileRef.current.style.transform = `scaleX(${bruto.toFixed(4)})`;
       }
 
@@ -435,18 +477,25 @@ export function CeltaScroll() {
             (alturaJanela * 0.3),
         ),
       );
-      if (navRef.current) {
-        navRef.current.style.opacity = (1 - saida).toFixed(2);
-        navRef.current.style.pointerEvents = saida > 0.5 ? "none" : "auto";
-      }
-      if (barraMobileRef.current) {
-        barraMobileRef.current.style.opacity = (1 - saida).toFixed(2);
+      if (saida !== saidaAnterior) {
+        saidaAnterior = saida;
+        if (navRef.current) {
+          navRef.current.style.opacity = saida.toFixed(2);
+          navRef.current.style.pointerEvents = saida > 0.5 ? "none" : "auto";
+        }
+        if (barraMobileRef.current) {
+          barraMobileRef.current.style.opacity = saida.toFixed(2);
+        }
       }
 
       if (vazadoRef.current) {
         // a assinatura tipográfica só entra depois que o título da abertura sai de cena
         const aparecer = Math.min(1, Math.max(0, (bruto - 0.11) / 0.09));
-        vazadoRef.current.style.opacity = (0.9 * aparecer).toFixed(3);
+        const opacidadeVazado = Math.round(aparecer * 60) * 0.015;
+        if (opacidadeVazado !== vazadoAnterior) {
+          vazadoAnterior = opacidadeVazado;
+          vazadoRef.current.style.opacity = (0.9 * opacidadeVazado).toFixed(3);
+        }
       }
 
       if (!semMovimento) {
@@ -488,7 +537,7 @@ export function CeltaScroll() {
       if (!pctx) return;
 
       const redimensionar = () => {
-        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        const dpr = Math.min(window.devicePixelRatio || 1, 1.5);
         canvasParticulas.width = Math.round(window.innerWidth * dpr);
         canvasParticulas.height = Math.round(window.innerHeight * dpr);
         pctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -545,6 +594,12 @@ export function CeltaScroll() {
     const observador = new ResizeObserver(() => medir());
     observador.observe(secao);
 
+    /* o motor descansa quando a apresentação sai da tela */
+    const observadorCena = new IntersectionObserver((entradas) => {
+      for (const entrada of entradas) emCena = entrada.isIntersecting;
+    }, { rootMargin: "0px 0px 12% 0px" });
+    if (canvas.parentElement) observadorCena.observe(canvas.parentElement);
+
     if (semMovimento) {
       void carregarQuadro(0).then(() => esconderLoader());
     } else {
@@ -567,6 +622,7 @@ export function CeltaScroll() {
       window.removeEventListener("pointermove", aoMover);
       document.removeEventListener("pointerover", aoPassar);
       observador.disconnect();
+      observadorCena.disconnect();
       quadros.forEach((fonte) => {
         if (fonte && typeof ImageBitmap !== "undefined" && fonte instanceof ImageBitmap) {
           fonte.close();
